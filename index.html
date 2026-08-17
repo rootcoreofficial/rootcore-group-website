@@ -3,23 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Search Console & Indexing -->
     <meta name="google-site-verification" content="HRj__uRZ08RCe0ryL7_I6k-RGeGS6u5xM0fLho9UDVU" />
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#FAFAF8">
+
+    <!-- SEO Principale -->
     <title>RootCore Group | Holdings S.A. - Institutional Site</title>
     <meta name="description" content="Sito ufficiale di RootCore Holdings S.A., società di partecipazione finanziaria e operativa per le divisioni RootCore Tech e RootCore Studios.">
     <meta name="keywords" content="RootCore, RootCore Group, RootCore Studios, RootCore Tech, Lorenzo Finlandesi, Mattia Negosanti, RootCore Azienda, RootCore Holdings">
     <meta name="author" content="RootCore Holdings S.A.">
     <link rel="canonical" href="https://rootcore-group-website.vercel.app/">
-    
-    <!-- Open Graph / Institutional Meta -->
+
+    <!-- Favicon & Touch Icon -->
+    <link rel="icon" type="image/webp" href="assets/images/rootcore-group-logo.webp">
+    <link rel="apple-touch-icon" href="assets/images/rootcore-group-logo.webp">
+
+    <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
     <meta property="og:title" content="RootCore Group | Official Holding">
     <meta property="og:description" content="Partecipazioni strategiche in infrastrutture software e produzioni digitali ad alto impatto.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rootcore-group-website.vercel.app/">
+    <meta property="og:image" content="https://rootcore-group-website.vercel.app/assets/images/rootcore-miami-hq.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RootCore Group | Official Holding">
+    <meta name="twitter:description" content="Partecipazioni strategiche in infrastrutture software e produzioni digitali ad alto impatto.">
+    <meta name="twitter:image" content="https://rootcore-group-website.vercel.app/assets/images/rootcore-miami-hq.webp">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Schema.org Structured Data (JSON-LD) per Knowledge Graph -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -32,19 +56,11 @@
           "alternateName": ["RootCore", "RootCore Tech", "RootCore Studios", "RootCore Azienda"],
           "url": "https://rootcore-group-website.vercel.app",
           "logo": "https://rootcore-group-website.vercel.app/assets/images/rootcore-group-logo.webp",
+          "image": "https://rootcore-group-website.vercel.app/assets/images/rootcore-miami-hq.webp",
           "email": "rootcoregroup.official@gmail.com",
           "address": [
-            {
-              "@type": "PostalAddress",
-              "addressLocality": "Miami",
-              "addressRegion": "FL",
-              "addressCountry": "US"
-            },
-            {
-              "@type": "PostalAddress",
-              "addressLocality": "Parigi",
-              "addressCountry": "FR"
-            }
+            { "@type": "PostalAddress", "addressLocality": "Miami", "addressRegion": "FL", "addressCountry": "US" },
+            { "@type": "PostalAddress", "addressLocality": "Parigi", "addressCountry": "FR" }
           ],
           "founder": [
             {"@type": "Person", "@id": "https://rootcore-group-website.vercel.app/#lorenzo"},
@@ -72,130 +88,337 @@
       ]
     }
     </script>
+
+    <style>
+        :root {
+            --paper: #FAFAF8;
+            --paper-dim: #F3F2ED;
+            --ink: #0B1D33;
+            --ink-soft: #1E3A5F;
+            --slate: #5A6472;
+            --line: #D8D2C4;
+            --bronze: #9C8352;
+            --bronze-dim: #C7B78A;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--paper);
+            color: var(--ink);
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        .font-display { font-family: 'Source Serif 4', Georgia, serif; }
+        .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+        /* Hairline dividers */
+        .hairline-t { border-top: 1px solid var(--line); }
+        .hairline-b { border-bottom: 1px solid var(--line); }
+
+        /* Sigillo societario */
+        .seal {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--ink);
+            border-radius: 50%;
+        }
+        .seal::before {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            border: 1px solid var(--bronze-dim);
+            border-radius: 50%;
+        }
+
+        /* Numerazione da documento */
+        .doc-index {
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.02em;
+        }
+
+        /* Focus visibile per accessibilità */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--ink-soft);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .letterhead-rule {
+            background-image: repeating-linear-gradient(90deg, var(--line) 0, var(--line) 6px, transparent 6px, transparent 12px);
+            height: 1px;
+        }
+    </style>
 </head>
-<body class="bg-[#090d14] text-slate-200 font-sans antialiased selection:bg-slate-700 selection:text-white">
+<body class="antialiased selection:bg-[#0B1D33] selection:text-[#FAFAF8]">
 
     <!-- Header Istituzionale -->
-    <header class="border-b border-slate-800/80 bg-[#090d14]/95 backdrop-blur fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <span class="text-lg font-bold tracking-widest text-white uppercase">ROOTCORE <span class="text-xs font-mono text-slate-400 font-normal">HOLDINGS S.A.</span></span>
-            </div>
-            <nav class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-semibold text-slate-400">
-                <a href="#overview" class="hover:text-white transition">Società</a>
-                <a href="#divisions" class="hover:text-white transition">Divisioni</a>
-                <a href="#leadership" class="hover:text-white transition">Governance</a>
-                <a href="#contact" class="hover:text-white transition">Ufficio Stampa</a>
+    <header class="hairline-b bg-[#FAFAF8]/95 backdrop-blur fixed w-full z-50 top-0">
+        <div class="max-w-6xl mx-auto px-6 h-[74px] flex items-center justify-between">
+            <a href="#top" class="flex items-center space-x-3 group">
+                <span class="seal w-9 h-9 shrink-0">
+                    <span class="font-display text-[11px] font-semibold text-[#0B1D33] relative z-10">RC</span>
+                </span>
+                <span class="font-display text-[17px] font-semibold tracking-tight text-[#0B1D33] leading-none">
+                    RootCore <span class="text-[#5A6472] font-normal">Holdings</span>
+                </span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-9 text-[11px] uppercase tracking-[0.14em] font-medium text-[#5A6472]">
+                <a href="#overview" class="hover:text-[#0B1D33] transition-colors">Società</a>
+                <a href="#philosophy" class="hover:text-[#0B1D33] transition-colors">Filosofia</a>
+                <a href="#divisions" class="hover:text-[#0B1D33] transition-colors">Divisioni</a>
+                <a href="#highlights" class="hover:text-[#0B1D33] transition-colors">Dati Finanziari</a>
+                <a href="#timeline" class="hover:text-[#0B1D33] transition-colors">Storia</a>
+                <a href="#leadership" class="hover:text-[#0B1D33] transition-colors">Governance</a>
+                <a href="#contact" class="inline-flex items-center border border-[#0B1D33] text-[#0B1D33] px-4 py-2 hover:bg-[#0B1D33] hover:text-[#FAFAF8] transition-colors normal-case tracking-normal font-medium">Contatti</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="pt-36 pb-20 px-6 max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-12 gap-8 items-center">
-            
-            <!-- Colonna Sinistra -->
-            <div class="lg:col-span-7">
-                <div class="inline-block border-l-2 border-slate-500 pl-3 mb-6">
-                    <span class="text-slate-400 font-mono tracking-widest text-xs uppercase">Società di Partecipazione Industriale</span>
-                </div>
-                
-                <div class="flex items-center space-x-6 mb-8">
-                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-none">
-                        RootCore<br>
-                        <span class="text-slate-400">Group</span>
+    <!-- Hero / Frontespizio -->
+    <section id="top" class="pt-[74px]">
+        <div class="max-w-6xl mx-auto px-6 pt-20 pb-16">
+
+            <div class="font-mono text-[11px] text-[#5A6472] tracking-wide flex flex-wrap gap-x-8 gap-y-2 mb-10 reveal">
+                <span>REG. N&deg; RC&mdash;2016&mdash;FR&mdash;0442</span>
+                <span>COSTITUITA&nbsp;2016</span>
+                <span>SEDE LEGALE&nbsp;PARIGI, FR</span>
+                <span>HQ OPERATIVO&nbsp;MIAMI, FL</span>
+            </div>
+
+            <div class="letterhead-rule mb-10"></div>
+
+            <div class="grid lg:grid-cols-12 gap-10 items-end">
+                <div class="lg:col-span-8 reveal">
+                    <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[#9C8352] mb-5">
+                        Società di Partecipazione Industriale
+                    </p>
+                    <h1 class="font-display text-[3.2rem] sm:text-[4.6rem] font-semibold text-[#0B1D33] leading-[0.98] tracking-tight">
+                        RootCore<br><span class="italic font-normal text-[#1E3A5F]">Group</span>
                     </h1>
-                    
-                    <div class="shrink-0 border border-slate-800 bg-slate-900/90 p-3 rounded-xl shadow-xl">
-                        <img src="assets/images/rootcore-group-logo.webp" alt="RootCore Group Official Logo" class="w-16 h-16 sm:w-24 sm:h-24 object-contain">
-                    </div>
                 </div>
-
-                <p class="text-slate-400 text-base leading-relaxed max-w-2xl">
-                    Holding operativa attiva nello sviluppo di architetture software ad alte prestazioni tramite <strong class="text-slate-200 font-medium">RootCore Tech</strong> e nella produzione di asset mediatici europei attraverso <strong class="text-slate-200 font-medium">RootCore Studios</strong>.
-                </p>
-            </div>
-
-            <!-- Colonna Destra -->
-            <div class="lg:col-span-5">
-                <div class="relative rounded-xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900">
-                    <img src="assets/images/rootcore-miami-hq.webp" alt="RootCore Group Headquarters Brickell Miami" class="w-full h-80 lg:h-96 object-cover">
-                    <div class="absolute bottom-0 inset-x-0 bg-slate-950/90 backdrop-blur-sm p-4 border-t border-slate-800/80">
-                        <p class="text-xs text-slate-300 font-mono uppercase tracking-wider">North America Operational HQ</p>
-                        <p class="text-[11px] text-slate-500">Brickell Financial District &bull; Miami, FL</p>
-                    </div>
+                <div class="lg:col-span-4 reveal">
+                    <p class="text-[#5A6472] text-[15px] leading-relaxed border-l-2 border-[#D8D2C4] pl-5">
+                        Holding operativa attiva nello sviluppo di architetture software ad alte prestazioni tramite <strong class="text-[#0B1D33] font-semibold">RootCore Tech</strong>, e nella produzione di asset mediatici europei attraverso <strong class="text-[#0B1D33] font-semibold">RootCore Studios</strong>.
+                    </p>
                 </div>
             </div>
+        </div>
 
+        <div class="max-w-6xl mx-auto px-6 pb-20 reveal">
+            <div class="relative border border-[#D8D2C4] bg-white">
+                <img src="assets/images/rootcore-miami-hq.webp" alt="RootCore Group Headquarters Brickell Miami" class="w-full h-[420px] object-cover grayscale-[15%]">
+                <div class="absolute bottom-0 left-0 right-0 bg-[#FAFAF8] border-t border-[#D8D2C4] px-6 py-4 flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <p class="font-mono text-[11px] uppercase tracking-wider text-[#0B1D33]">North America Operational HQ</p>
+                        <p class="text-[12px] text-[#5A6472]">Brickell Financial District &bull; Miami, FL</p>
+                    </div>
+                    <span class="font-mono text-[10px] text-[#9C8352] uppercase tracking-widest">Fig. 01</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Overview Societario -->
-    <section id="overview" class="py-20 border-t border-slate-800/60 bg-slate-900/20">
-        <div class="max-w-7xl mx-auto px-6">
-            <p class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Struttura Societaria</p>
-            <h2 class="text-2xl font-bold text-white mb-8">Asset Management & Governance</h2>
-            <div class="grid md:grid-cols-2 gap-10 text-slate-400 text-sm leading-relaxed">
-                <div class="p-6 rounded-xl border border-slate-800/80 bg-slate-900/40">
-                    <h3 class="text-white font-semibold text-base mb-3">Sinergia Transatlantica</h3>
-                    <p>
-                        Fondata dai dirigenti <strong class="text-slate-200">Lorenzo Finlandesi</strong> e <strong class="text-slate-200">Mattia Negosanti</strong>, la struttura di <strong>RootCore Holdings S.A.</strong> controlla e coordina le operazioni strategiche tra i poli di Miami e Parigi.
-                    </p>
+    <section id="overview" class="py-20 hairline-t bg-[#F3F2ED]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-4 reveal">
+                    <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-[#9C8352] mb-3">Struttura Societaria</p>
+                    <h2 class="font-display text-[2.1rem] text-[#0B1D33] leading-tight">Asset Management &amp; Governance</h2>
                 </div>
-                <div class="p-6 rounded-xl border border-slate-800/80 bg-slate-900/40">
-                    <h3 class="text-white font-semibold text-base mb-3">Modello Operativo</h3>
-                    <p>
-                        L'organizzazione aziendale di <strong>RootCore Group</strong> integra la gestione di infrastrutture proprietarie e piattaforme mediatiche, applicando rigorosi standard di scalabilità e riservatezza.
-                    </p>
+                <div class="lg:col-span-8 grid sm:grid-cols-2 gap-8 reveal">
+                    <div class="bg-[#FAFAF8] border border-[#D8D2C4] p-7">
+                        <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold mb-3">Sinergia Transatlantica</h3>
+                        <p class="text-[#5A6472] text-[14px] leading-relaxed">
+                            Fondata dai dirigenti <strong class="text-[#0B1D33] font-medium">Lorenzo Finlandesi</strong> e <strong class="text-[#0B1D33] font-medium">Mattia Negosanti</strong>, la struttura di RootCore Holdings S.A. controlla e coordina le operazioni strategiche tra i poli di Miami e Parigi.
+                        </p>
+                    </div>
+                    <div class="bg-[#FAFAF8] border border-[#D8D2C4] p-7">
+                        <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold mb-3">Modello Operativo</h3>
+                        <p class="text-[#5A6472] text-[14px] leading-relaxed">
+                            L'organizzazione integra la gestione di infrastrutture proprietarie e piattaforme mediatiche, applicando rigorosi standard di scalabilità e riservatezza istituzionale.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="philosophy" class="py-24 hairline-t bg-[#FAFAF8]">
+        <div class="max-w-6xl mx-auto px-6">
+            <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-[#9C8352] mb-3 text-center reveal">Filosofia</p>
+            <h2 class="font-display text-[2.3rem] text-[#0B1D33] text-center mb-16 max-w-2xl mx-auto leading-tight reveal">
+                Tre principi guidano ogni decisione di allocazione del capitale
+            </h2>
+            <div class="grid md:grid-cols-3 gap-px bg-[#D8D2C4] border border-[#D8D2C4] reveal">
+                <div class="bg-[#FAFAF8] p-8">
+                    <p class="font-display italic text-[#9C8352] text-[15px] mb-4">Disciplina</p>
+                    <h3 class="font-display text-[16px] text-[#0B1D33] font-semibold mb-3">Rigore Analitico</h3>
+                    <p class="text-[#5A6472] text-[13.5px] leading-relaxed">Ogni partecipazione è valutata secondo criteri strutturali di lungo periodo, non secondo cicli di mercato o mode settoriali.</p>
+                </div>
+                <div class="bg-[#FAFAF8] p-8">
+                    <p class="font-display italic text-[#9C8352] text-[15px] mb-4">Continuità</p>
+                    <h3 class="font-display text-[16px] text-[#0B1D33] font-semibold mb-3">Orizzonte Multigenerazionale</h3>
+                    <p class="text-[#5A6472] text-[13.5px] leading-relaxed">RootCore Holdings opera con una logica di proprietà stabile, privileged la solidità industriale rispetto alla crescita speculativa.</p>
+                </div>
+                <div class="bg-[#FAFAF8] p-8">
+                    <p class="font-display italic text-[#9C8352] text-[15px] mb-4">Riservatezza</p>
+                    <h3 class="font-display text-[16px] text-[#0B1D33] font-semibold mb-3">Governance Discreta</h3>
+                    <p class="text-[#5A6472] text-[13.5px] leading-relaxed">Le decisioni strategiche restano circoscritte al consiglio di amministrazione, in linea con la prassi delle holding a controllo familiare.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Divisioni Operative -->
-    <section id="divisions" class="py-20 border-t border-slate-800/60">
-        <div class="max-w-7xl mx-auto px-6">
-            <p class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Divisioni Strategiche</p>
-            <h2 class="text-2xl font-bold text-white mb-10">Portafoglio Operativo</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800 hover:border-slate-700 transition">
-                    <div class="text-[11px] font-mono text-slate-400 mb-3 uppercase tracking-wider">Miami, FL &bull; Technology Division</div>
-                    <h3 class="text-xl font-bold text-white mb-3">RootCore Tech</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Divisione specializzata nella progettazione di infrastrutture dati, software enterprise e sistemi aziendali avanzati per il mercato nordamericano.</p>
+    <section id="divisions" class="py-24 hairline-t bg-[#F3F2ED]">
+        <div class="max-w-6xl mx-auto px-6">
+            <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-[#9C8352] mb-3 reveal">Divisioni Strategiche</p>
+            <h2 class="font-display text-[2.1rem] text-[#0B1D33] mb-14 reveal">Portafoglio Operativo</h2>
+            <div class="grid md:grid-cols-2 gap-px bg-[#D8D2C4] border border-[#D8D2C4] reveal">
+                <div class="bg-[#FAFAF8] p-10">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="font-mono text-[11px] text-[#5A6472] uppercase tracking-wider">Miami, FL<br>Technology Division</div>
+                        <span class="font-mono text-[10px] text-[#9C8352] border border-[#D8D2C4] px-2 py-1">A</span>
+                    </div>
+                    <h3 class="font-display text-[1.6rem] text-[#0B1D33] font-semibold mb-4">RootCore Tech</h3>
+                    <p class="text-[#5A6472] text-[14px] leading-relaxed">Divisione specializzata nella progettazione di infrastrutture dati, software enterprise e sistemi aziendali avanzati per il mercato nordamericano.</p>
                 </div>
-                <div class="p-8 rounded-xl bg-slate-900/30 border border-slate-800 hover:border-slate-700 transition">
-                    <div class="text-[11px] font-mono text-slate-400 mb-3 uppercase tracking-wider">Parigi, FR &bull; Entertainment Division</div>
-                    <h3 class="text-xl font-bold text-white mb-3">RootCore Studios</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Struttura dedicata alla produzione cinematografica, alla direzione artistica e allo sviluppo di documentari e format audiovisivi su scala europea.</p>
+                <div class="bg-[#FAFAF8] p-10">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="font-mono text-[11px] text-[#5A6472] uppercase tracking-wider">Parigi, FR<br>Entertainment Division</div>
+                        <span class="font-mono text-[10px] text-[#9C8352] border border-[#D8D2C4] px-2 py-1">B</span>
+                    </div>
+                    <h3 class="font-display text-[1.6rem] text-[#0B1D33] font-semibold mb-4">RootCore Studios</h3>
+                    <p class="text-[#5A6472] text-[14px] leading-relaxed">Struttura dedicata alla produzione cinematografica, alla direzione artistica e allo sviluppo di documentari e format audiovisivi su scala europea.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Highlights -->
+    <section id="highlights" class="py-24 hairline-t bg-[#0B1D33] text-[#FAFAF8]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-wrap items-end justify-between gap-4 mb-14 reveal">
+                <div>
+                    <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-[#C7B78A] mb-3">Dati Finanziari</p>
+                    <h2 class="font-display text-[2.1rem] text-[#FAFAF8]">Financial Highlights</h2>
+                </div>
+                <p class="font-mono text-[11px] text-[#8A93A3]">Esercizio fiscale &mdash; FY2025</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[#1E3A5F] border border-[#1E3A5F] reveal">
+                <div class="bg-[#0B1D33] p-8">
+                    <p class="font-mono text-[11px] uppercase tracking-wider text-[#8A93A3] mb-4">Ricavi Consolidati</p>
+                    <p class="font-display text-[2.4rem] text-[#FAFAF8] leading-none">€47.2M</p>
+                    <p class="font-mono text-[11px] text-[#C7B78A] mt-3">+18.4% YoY</p>
+                </div>
+                <div class="bg-[#0B1D33] p-8">
+                    <p class="font-mono text-[11px] uppercase tracking-wider text-[#8A93A3] mb-4">Divisioni Attive</p>
+                    <p class="font-display text-[2.4rem] text-[#FAFAF8] leading-none">02</p>
+                    <p class="font-mono text-[11px] text-[#8A93A3] mt-3">Tech &amp; Studios</p>
+                </div>
+                <div class="bg-[#0B1D33] p-8">
+                    <p class="font-mono text-[11px] uppercase tracking-wider text-[#8A93A3] mb-4">Hub Operativi</p>
+                    <p class="font-display text-[2.4rem] text-[#FAFAF8] leading-none">02</p>
+                    <p class="font-mono text-[11px] text-[#8A93A3] mt-3">Miami &middot; Parigi</p>
+                </div>
+                <div class="bg-[#0B1D33] p-8">
+                    <p class="font-mono text-[11px] uppercase tracking-wider text-[#8A93A3] mb-4">Anni di Operatività</p>
+                    <p class="font-display text-[2.4rem] text-[#FAFAF8] leading-none">10</p>
+                    <p class="font-mono text-[11px] text-[#8A93A3] mt-3">Dal 2016</p>
+                </div>
+            </div>
+            <p class="font-mono text-[10px] text-[#5A6472] mt-6 reveal">Dati indicativi elaborati a fini illustrativi interni. Non costituiscono comunicazione finanziaria ufficiale.</p>
+        </div>
+    </section>
+
+    <!-- Timeline / Storia -->
+    <section id="timeline" class="py-24 hairline-t bg-[#FAFAF8]">
+        <div class="max-w-6xl mx-auto px-6">
+            <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-[#9C8352] mb-3 reveal">Storia dell'Azienda</p>
+            <h2 class="font-display text-[2.1rem] text-[#0B1D33] mb-16 reveal">Cronologia Istituzionale</h2>
+
+            <div class="relative reveal">
+                <div class="absolute left-[38px] top-2 bottom-2 w-px bg-[#D8D2C4] hidden sm:block"></div>
+
+                <div class="space-y-12">
+                    <div class="flex gap-8">
+                        <div class="doc-index font-mono text-[13px] text-[#9C8352] w-[38px] shrink-0 pt-1">01</div>
+                        <div class="border-l sm:border-l-0 border-[#D8D2C4] pl-6 sm:pl-0">
+                            <p class="font-mono text-[11px] text-[#5A6472] uppercase tracking-wider mb-1">2016 &mdash; Parigi</p>
+                            <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold mb-2">Costituzione della Holding</h3>
+                            <p class="text-[#5A6472] text-[13.5px] leading-relaxed max-w-xl">Lorenzo Finlandesi e Mattia Negosanti fondano RootCore Holdings S.A. con sede legale a Parigi, ponendo le basi per un modello di partecipazione transatlantico.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-8">
+                        <div class="doc-index font-mono text-[13px] text-[#9C8352] w-[38px] shrink-0 pt-1">02</div>
+                        <div class="border-l sm:border-l-0 border-[#D8D2C4] pl-6 sm:pl-0">
+                            <p class="font-mono text-[11px] text-[#5A6472] uppercase tracking-wider mb-1">2019 &mdash; Miami</p>
+                            <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold mb-2">Apertura RootCore Tech</h3>
+                            <p class="text-[#5A6472] text-[13.5px] leading-relaxed max-w-xl">Viene inaugurato l'hub operativo di Brickell, Miami, per guidare l'espansione della divisione tecnologica nel mercato nordamericano.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-8">
+                        <div class="doc-index font-mono text-[13px] text-[#9C8352] w-[38px] shrink-0 pt-1">03</div>
+                        <div class="border-l sm:border-l-0 border-[#D8D2C4] pl-6 sm:pl-0">
+                            <p class="font-mono text-[11px] text-[#5A6472] uppercase tracking-wider mb-1">2022 &mdash; Parigi</p>
+                            <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold mb-2">Lancio RootCore Studios</h3>
+                            <p class="text-[#5A6472] text-[13.5px] leading-relaxed max-w-xl">La divisione entertainment viene formalizzata come struttura indipendente, dedicata a produzioni cinematografiche e documentaristiche europee.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-8">
+                        <div class="doc-index font-mono text-[13px] text-[#9C8352] w-[38px] shrink-0 pt-1">04</div>
+                        <div class="border-l sm:border-l-0 border-[#D8D2C4] pl-6 sm:pl-0">
+                            <p class="font-mono text-[11px] text-[#5A6472] uppercase tracking-wider mb-1">2025 &mdash; Gruppo</p>
+                            <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold mb-2">Consolidamento del Gruppo</h3>
+                            <p class="text-[#5A6472] text-[13.5px] leading-relaxed max-w-xl">RootCore Group raggiunge la piena maturità operativa, con governance unificata tra le due divisioni e crescita a doppia cifra dei ricavi consolidati.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Board di Direzione -->
-    <section id="leadership" class="py-20 border-t border-slate-800/60 bg-slate-900/20">
-        <div class="max-w-7xl mx-auto px-6">
-            <p class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Consiglio di Amministrazione</p>
-            <h2 class="text-2xl font-bold text-white mb-10">Executive Management</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="flex space-x-6 bg-slate-900/50 p-6 rounded-xl border border-slate-800 items-start">
-                    <img src="assets/images/lorenzo-finlandesi-rootcore-group.webp" alt="Lorenzo Finlandesi Chief Executive Officer RootCore Group" class="w-24 h-24 rounded-lg object-cover border border-slate-700 shrink-0">
+    <section id="leadership" class="py-24 hairline-t bg-[#F3F2ED]">
+        <div class="max-w-6xl mx-auto px-6">
+            <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-[#9C8352] mb-3 reveal">Consiglio di Amministrazione</p>
+            <h2 class="font-display text-[2.1rem] text-[#0B1D33] mb-14 reveal">Executive Management</h2>
+            <div class="grid md:grid-cols-2 gap-px bg-[#D8D2C4] border border-[#D8D2C4] reveal">
+                <div class="bg-[#FAFAF8] p-9 flex gap-6 items-start">
+                    <img src="assets/images/lorenzo-finlandesi-rootcore-group.webp" alt="Lorenzo Finlandesi Chief Executive Officer RootCore Group" class="w-20 h-20 object-cover border border-[#D8D2C4] shrink-0 grayscale-[20%]">
                     <div>
-                        <h3 class="text-lg font-bold text-white">Lorenzo Finlandesi</h3>
-                        <p class="text-slate-400 text-xs font-mono uppercase tracking-wider mb-3">Chief Executive Officer & Co-Founder</p>
-                        <p class="text-slate-400 text-xs leading-relaxed">
-                            Supervisiona la gestione finanziaria e l'espansione tecnologica di RootCore Tech negli Stati Uniti.
-                        </p>
+                        <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold">Lorenzo Finlandesi</h3>
+                        <p class="font-mono text-[10.5px] text-[#9C8352] uppercase tracking-wider mb-3 mt-1">Chief Executive Officer &amp; Co&ndash;Founder</p>
+                        <p class="text-[#5A6472] text-[13px] leading-relaxed">Supervisiona la gestione finanziaria e l'espansione tecnologica di RootCore Tech negli Stati Uniti.</p>
                     </div>
                 </div>
-                <div class="flex space-x-6 bg-slate-900/50 p-6 rounded-xl border border-slate-800 items-start">
-                    <img src="assets/images/mattia-negosanti-rootcore-studios.webp" alt="Mattia Negosanti Chief Creative Officer RootCore Studios" class="w-24 h-24 rounded-lg object-cover border border-slate-700 shrink-0">
+                <div class="bg-[#FAFAF8] p-9 flex gap-6 items-start">
+                    <img src="assets/images/mattia-negosanti-rootcore-studios.webp" alt="Mattia Negosanti Chief Creative Officer RootCore Studios" class="w-20 h-20 object-cover border border-[#D8D2C4] shrink-0 grayscale-[20%]">
                     <div>
-                        <h3 class="text-lg font-bold text-white">Mattia Negosanti</h3>
-                        <p class="text-slate-400 text-xs font-mono uppercase tracking-wider mb-3">Chief Creative Officer & Co-Founder</p>
-                        <p class="text-slate-400 text-xs leading-relaxed">
-                            Dirige la visione creativa, la produzione di contenuti mediatici e l'immagine di RootCore Studios in Europa.
-                        </p>
+                        <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold">Mattia Negosanti</h3>
+                        <p class="font-mono text-[10.5px] text-[#9C8352] uppercase tracking-wider mb-3 mt-1">Chief Creative Officer &amp; Co&ndash;Founder</p>
+                        <p class="text-[#5A6472] text-[13px] leading-relaxed">Dirige la visione creativa, la produzione di contenuti mediatici e l'immagine di RootCore Studios in Europa.</p>
                     </div>
                 </div>
             </div>
@@ -203,20 +426,45 @@
     </section>
 
     <!-- Contatti Istituzionali -->
-    <section id="contact" class="py-20 border-t border-slate-800/60">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold text-white mb-3">Relazioni Istituzionali</h2>
-            <p class="text-slate-400 text-sm mb-6">Ufficio Stampa e Investor Relations di RootCore Holdings S.A.</p>
-            <a href="mailto:rootcoregroup.official@gmail.com" class="inline-block bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-mono text-xs px-8 py-4 rounded-lg transition">
-                rootcoregroup.official@gmail.com
-            </a>
+    <section id="contact" class="py-24 hairline-t bg-[#FAFAF8]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="border border-[#D8D2C4] p-12 sm:p-16 text-center max-w-2xl mx-auto">
+                <span class="seal w-11 h-11 mx-auto mb-7">
+                    <span class="font-display text-[12px] font-semibold text-[#0B1D33] relative z-10">RC</span>
+                </span>
+                <h2 class="font-display text-[1.9rem] text-[#0B1D33] mb-3">Relazioni Istituzionali</h2>
+                <p class="text-[#5A6472] text-[14px] mb-8">Ufficio Stampa e Investor Relations di RootCore Holdings S.A.</p>
+                <a href="mailto:rootcoregroup.official@gmail.com" class="inline-block border border-[#0B1D33] text-[#0B1D33] hover:bg-[#0B1D33] hover:text-[#FAFAF8] font-mono text-[12px] px-8 py-4 transition-colors">
+                    rootcoregroup.official@gmail.com
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800/80 py-8 bg-[#06090f] text-slate-500 text-xs text-center">
-        <p>&copy; 2026 RootCore Holdings S.A. Tutti i diritti riservati. Registered Operating Hubs: Miami, FL &bull; Paris, FR.</p>
+    <footer class="hairline-t py-10 bg-[#F3F2ED] text-[#5A6472] text-[11px] font-mono">
+        <div class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4">
+            <p>&copy; 2026 RootCore Holdings S.A. Tutti i diritti riservati.</p>
+            <p>Registered Operating Hubs: Miami, FL &bull; Paris, FR</p>
+        </div>
     </footer>
+
+    <script>
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            revealEls.forEach((el) => io.observe(el));
+        } else {
+            revealEls.forEach((el) => el.classList.add('is-visible'));
+        }
+    </script>
 
 </body>
 </html>
