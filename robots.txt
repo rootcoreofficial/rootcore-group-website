@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rootcore-group-website.vercel.app/sitemap.xml
