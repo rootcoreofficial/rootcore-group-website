@@ -1,8 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://rootcore-group-website.vercel.app/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <loc>https://www.rootcoregroup.com/</loc>
+    <lastmod>2026-08-19</lastmod>
     <priority>1.00</priority>
+    <image:image>
+      <image:loc>https://www.rootcoregroup.com/assets/images/rootcore-miami-hq.webp</image:loc>
+      <image:title>RootCore Group Headquarters — Brickell, Miami</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.rootcoregroup.com/assets/images/rootcore-group-logo.webp</image:loc>
+      <image:title>RootCore Group — Logo ufficiale</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.rootcoregroup.com/assets/images/lorenzo-finlandesi-rootcore-group.webp</image:loc>
+      <image:title>Lorenzo Finlandesi — CEO e Co-Founder RootCore Group</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.rootcoregroup.com/assets/images/mattia-negosanti-rootcore-studios.webp</image:loc>
+      <image:title>Mattia Negosanti — Chief Creative Officer e Co-Founder RootCore Group</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.rootcoregroup.com/lorenzo-finlandesi/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://www.rootcoregroup.com/assets/images/lorenzo-finlandesi-rootcore-group.webp</image:loc>
+      <image:title>Lorenzo Finlandesi — ritratto ufficiale, CEO RootCore Group</image:title>
+      <image:caption>Lorenzo Finlandesi, Chief Executive Officer e co-fondatore di RootCore Holdings S.A.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.rootcoregroup.com/assets/images/lorenzo-finlandesi-ufficio-miami.webp</image:loc>
+      <image:title>Lorenzo Finlandesi nel suo ufficio a Miami</image:title>
+      <image:caption>Lorenzo Finlandesi nell'ufficio direzionale di RootCore Tech, Brickell, Miami</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.rootcoregroup.com/assets/images/lorenzo-finlandesi-hq-brickell.webp</image:loc>
+      <image:title>Lorenzo Finlandesi davanti alla sede RootCore di Miami</image:title>
+      <image:caption>Lorenzo Finlandesi davanti al quartier generale operativo di RootCore Group a Brickell, Miami</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.rootcoregroup.com/mattia-negosanti/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://www.rootcoregroup.com/assets/images/mattia-negosanti-rootcore-studios.webp</image:loc>
+      <image:title>Mattia Negosanti — ritratto ufficiale, Chief Creative Officer RootCore Group</image:title>
+      <image:caption>Mattia Negosanti nello studio creativo di RootCore Studios, Parigi</image:caption>
+    </image:image>
   </url>
 </urlset>

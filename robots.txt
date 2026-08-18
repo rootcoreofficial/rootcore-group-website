@@ -1,4 +1,52 @@
+# RootCore Group — robots.txt
+# https://www.rootcoregroup.com
+
+# Regola generale: l'intero sito è aperto all'indicizzazione
 User-agent: *
 Allow: /
 
-Sitemap: https://rootcore-group-website.vercel.app/sitemap.xml
+# ============================================
+# Crawler IA esplicitamente autorizzati (GEO)
+# ============================================
+
+# OpenAI (ChatGPT)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google (controllo dati per training IA / Gemini)
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl (dataset usato da molti LLM)
+User-agent: CCBot
+Allow: /
+
+# Apple (Apple Intelligence / Siri)
+User-agent: Applebot
+Allow: /
+
+# Microsoft (Copilot / Bing)
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://www.rootcoregroup.com/sitemap.xml

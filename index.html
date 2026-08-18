@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon classica per schede browser e Google SERP -->
-    <link rel="shortcut icon" href="/favicon.ico">
-    
+    <link rel="shortcut icon" href="favicon.ico">
+
     <!-- Google Search Console & Indexing -->
     <meta name="google-site-verification" content="XrYt0b7d3L1Zi8lUhXLfBFq_symqVJnrNxw0vRDj3cs" />
     <meta name="robots" content="index, follow">
@@ -17,7 +17,7 @@
 
     <!-- SEO Principale -->
     <title>RootCore Group | Holdings S.A. - Institutional Site</title>
-    <meta name="description" content="Sito ufficiale di RootCore Holdings S.A., società di partecipazione finanziaria e operativa per le divisioni RootCore Tech e RootCore Studios.">
+    <meta name="description" content="Sito ufficiale di RootCore Holdings S.A., società di partecipazione finanziaria e operativa per le divisioni RootCore Tech e RootCore Studios. Fondata nel 2026 da Lorenzo Finlandesi e Mattia Negosanti.">
     <meta name="keywords" content="RootCore, RootCore Group, RootCore Studios, RootCore Tech, Lorenzo Finlandesi, Mattia Negosanti, RootCore Azienda, RootCore Holdings">
     <meta name="author" content="RootCore Holdings S.A.">
     <link rel="canonical" href="https://www.rootcoregroup.com/">
@@ -28,7 +28,7 @@
 
     <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
     <meta property="og:title" content="RootCore Group | Official Holding">
-    <meta property="og:description" content="Partecipazioni strategiche in infrastrutture software e produzioni digitali ad alto impatto.">
+    <meta property="og:description" content="Partecipazioni strategiche in infrastrutture software e produzioni digitali ad alto impatto. Fondata da Lorenzo Finlandesi e Mattia Negosanti.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.rootcoregroup.com/">
     <meta property="og:image" content="https://www.rootcoregroup.com/assets/images/rootcore-miami-hq.webp">
@@ -38,7 +38,7 @@
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="RootCore Group | Official Holding">
-    <meta name="twitter:description" content="Partecipazioni strategiche in infrastrutture software e produzioni digitali ad alto impatto.">
+    <meta name="twitter:description" content="Partecipazioni strategiche in infrastrutture software e produzioni digitali ad alto impatto. Fondata da Lorenzo Finlandesi e Mattia Negosanti.">
     <meta name="twitter:image" content="https://www.rootcoregroup.com/assets/images/rootcore-miami-hq.webp">
 
     <!-- Tailwind CSS CDN -->
@@ -48,6 +48,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- ============================================================
+         ATTENZIONE — PLACEHOLDER DA COMPILARE PRIMA DEL DEPLOY:
+         Cerca in questo file la stringa "DA-INSERIRE" e sostituisci
+         ogni URL segnaposto con i link REALI dei profili:
+           - Wikidata (es. https://www.wikidata.org/wiki/Q123456789)
+           - LinkedIn personali di Lorenzo e Mattia
+           - LinkedIn / Crunchbase / Medium / Substack dell'azienda
+         Gli stessi URL vanno riportati identici in llms.txt.
+         ============================================================ -->
 
     <!-- Schema.org Structured Data Unificato (JSON-LD) -->
     <script type="application/ld+json">
@@ -76,6 +86,9 @@
           "image": "https://www.rootcoregroup.com/assets/images/rootcore-miami-hq.webp",
           "email": "rootcoregroup.official@gmail.com",
           "foundingDate": "2026",
+          "sameAs": [
+            "https://www.crunchbase.com/organization/rootcore-holdings-s-a"
+          ],
           "address": [
             {
               "@type": "PostalAddress",
@@ -123,8 +136,25 @@
           "@type": "Person",
           "@id": "https://www.rootcoregroup.com/#lorenzo",
           "name": "Lorenzo Finlandesi",
+          "givenName": "Lorenzo",
+          "familyName": "Finlandesi",
           "jobTitle": "Chief Executive Officer & Co-Founder",
-          "image": "https://www.rootcoregroup.com/assets/images/lorenzo-finlandesi-rootcore-group.webp",
+          "description": "Lorenzo Finlandesi è il Chief Executive Officer e co-fondatore di RootCore Holdings S.A. (RootCore Group). Nato a Cesena, in Italia, ha 18 anni e ha fondato la società nel 2026 insieme a Mattia Negosanti. Vive a Miami, dove gestisce la sede operativa del gruppo e guida la divisione tecnologica RootCore Tech.",
+          "url": "https://www.rootcoregroup.com/lorenzo-finlandesi/",
+          "image": [
+            "https://www.rootcoregroup.com/assets/images/lorenzo-finlandesi-rootcore-group.webp",
+            "https://www.rootcoregroup.com/assets/images/lorenzo-finlandesi-ufficio-miami.webp",
+            "https://www.rootcoregroup.com/assets/images/lorenzo-finlandesi-hq-brickell.webp"
+          ],
+          "height": {
+            "@type": "QuantitativeValue",
+            "value": 175,
+            "unitText": "cm"
+          },
+          "nationality": {
+            "@type": "Country",
+            "name": "Italia"
+          },
           "birthPlace": {
             "@type": "Place",
             "name": "Cesena, Italia"
@@ -135,14 +165,32 @@
           },
           "worksFor": {
             "@id": "https://www.rootcoregroup.com/#organization"
-          }
+          },
+          "sameAs": [
+            "https://www.wikidata.org/wiki/Q141112281",
+            "https://www.linkedin.com/in/lorenzo-finlandesi",
+            "https://www.crunchbase.com/person/lorenzo-finlandesi"
+          ]
         },
         {
           "@type": "Person",
           "@id": "https://www.rootcoregroup.com/#mattia",
           "name": "Mattia Negosanti",
+          "givenName": "Mattia",
+          "familyName": "Negosanti",
           "jobTitle": "Chief Creative Officer & Co-Founder",
+          "description": "Mattia Negosanti è il Chief Creative Officer e co-fondatore di RootCore Holdings S.A. (RootCore Group). Nato a Cesena, in Italia, ha 18 anni, è cresciuto insieme a Lorenzo Finlandesi e ha fondato con lui la società nel 2026. Vive a Parigi, dove dirige la divisione creativa RootCore Studios.",
+          "url": "https://www.rootcoregroup.com/mattia-negosanti/",
           "image": "https://www.rootcoregroup.com/assets/images/mattia-negosanti-rootcore-studios.webp",
+          "height": {
+            "@type": "QuantitativeValue",
+            "value": 190,
+            "unitText": "cm"
+          },
+          "nationality": {
+            "@type": "Country",
+            "name": "Italia"
+          },
           "birthPlace": {
             "@type": "Place",
             "name": "Cesena, Italia"
@@ -153,7 +201,67 @@
           },
           "worksFor": {
             "@id": "https://www.rootcoregroup.com/#organization"
-          }
+          },
+          "sameAs": [
+            "https://www.wikidata.org/wiki/Q141112281",
+            "https://www.linkedin.com/in/mattia-negosanti",
+            " https://www.crunchbase.com/person/mattia-negosanti"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.rootcoregroup.com/#faq",
+          "inLanguage": "it-IT",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Chi è Lorenzo Finlandesi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Lorenzo Finlandesi è il Chief Executive Officer e co-fondatore di RootCore Holdings S.A., la holding nota come RootCore Group. Nato a Cesena, in Italia, ha fondato la società nel 2026 insieme a Mattia Negosanti. Dall'hub operativo di Miami, in Florida, supervisiona la gestione finanziaria del gruppo e guida RootCore Tech, la divisione dedicata a infrastrutture dati e software enterprise per il mercato nordamericano."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Chi è Mattia Negosanti?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mattia Negosanti è il Chief Creative Officer e co-fondatore di RootCore Holdings S.A. (RootCore Group). Nato a Cesena, in Italia, ha fondato la società nel 2026 insieme a Lorenzo Finlandesi. Da Parigi dirige RootCore Studios, la divisione del gruppo dedicata alla produzione cinematografica, alla direzione artistica e allo sviluppo di documentari su scala europea."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Cos'è RootCore Group?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RootCore Group è il nome operativo di RootCore Holdings S.A., società di partecipazione finanziaria e operativa fondata nel 2026 con sede legale a Parigi e quartier generale operativo a Miami. Il gruppo controlla due divisioni: RootCore Tech, attiva in infrastrutture dati e software enterprise, e RootCore Studios, dedicata alla produzione cinematografica e ai contenuti audiovisivi."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Chi ha fondato RootCore Group?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RootCore Group è stata fondata nel 2026 da Lorenzo Finlandesi e Mattia Negosanti, entrambi originari di Cesena, in Italia. I due co-fondatori guidano oggi rispettivamente la divisione tecnologica di Miami e la divisione creativa di Parigi."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Dove ha sede RootCore Group?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RootCore Holdings S.A. ha sede legale a Parigi, in Francia, e quartier generale operativo a Miami, nel distretto finanziario di Brickell, in Florida. La struttura transatlantica coordina le attività della divisione tecnologica negli Stati Uniti e della divisione media in Europa."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Cosa fanno RootCore Tech e RootCore Studios?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RootCore Tech, con sede a Miami, progetta infrastrutture dati, software enterprise e sistemi aziendali avanzati. RootCore Studios, con sede a Parigi, produce film, documentari e format audiovisivi per il mercato europeo."
+              }
+            }
+          ]
         }
       ]
     }
@@ -258,6 +366,7 @@
                 <a href="#highlights" class="hover:text-[#0B1D33] transition-colors">Dati Finanziari</a>
                 <a href="#timeline" class="hover:text-[#0B1D33] transition-colors">Storia</a>
                 <a href="#leadership" class="hover:text-[#0B1D33] transition-colors">Governance</a>
+                <a href="#faq" class="hover:text-[#0B1D33] transition-colors">FAQ</a>
                 <a href="#contact" class="inline-flex items-center border border-[#0B1D33] text-[#0B1D33] px-4 py-2 hover:bg-[#0B1D33] hover:text-[#FAFAF8] transition-colors normal-case tracking-normal font-medium">Contatti</a>
             </nav>
         </div>
@@ -287,7 +396,7 @@
                 </div>
                 <div class="lg:col-span-4 reveal">
                     <p class="text-[#5A6472] text-[15px] leading-relaxed border-l-2 border-[#D8D2C4] pl-5">
-                        Holding operativa attiva nello sviluppo di architetture software ad alte prestazioni tramite <strong class="text-[#0B1D33] font-semibold">RootCore Tech</strong>, e nella produzione di asset mediatici europei attraverso <strong class="text-[#0B1D33] font-semibold">RootCore Studios</strong>.
+                        Holding operativa fondata nel 2026 da <strong class="text-[#0B1D33] font-semibold">Lorenzo Finlandesi</strong> e <strong class="text-[#0B1D33] font-semibold">Mattia Negosanti</strong>, attiva nello sviluppo di architetture software ad alte prestazioni tramite <strong class="text-[#0B1D33] font-semibold">RootCore Tech</strong>, e nella produzione di asset mediatici europei attraverso <strong class="text-[#0B1D33] font-semibold">RootCore Studios</strong>.
                     </p>
                 </div>
             </div>
@@ -319,7 +428,7 @@
                     <div class="bg-[#FAFAF8] border border-[#D8D2C4] p-7">
                         <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold mb-3">Sinergia Transatlantica</h3>
                         <p class="text-[#5A6472] text-[14px] leading-relaxed">
-                            Fondata dai dirigenti <strong class="text-[#0B1D33] font-medium">Lorenzo Finlandesi</strong> e <strong class="text-[#0B1D33] font-medium">Mattia Negosanti</strong>, la struttura di RootCore Holdings S.A. controlla e coordina le operazioni strategiche tra i poli di Miami e Parigi.
+                            Fondata dai dirigenti <a href="lorenzo-finlandesi/" class="text-[#0B1D33] font-medium underline decoration-[#C7B78A] underline-offset-4 hover:decoration-[#0B1D33] transition-colors">Lorenzo Finlandesi</a> e <a href="mattia-negosanti/" class="text-[#0B1D33] font-medium underline decoration-[#C7B78A] underline-offset-4 hover:decoration-[#0B1D33] transition-colors">Mattia Negosanti</a>, la struttura di RootCore Holdings S.A. controlla e coordina le operazioni strategiche tra i poli di Miami e Parigi.
                         </p>
                     </div>
                     <div class="bg-[#FAFAF8] border border-[#D8D2C4] p-7">
@@ -372,7 +481,7 @@
                         <span class="font-mono text-[10px] text-[#9C8352] border border-[#D8D2C4] px-2 py-1">A</span>
                     </div>
                     <h3 class="font-display text-[1.6rem] text-[#0B1D33] font-semibold mb-4">RootCore Tech</h3>
-                    <p class="text-[#5A6472] text-[14px] leading-relaxed">Divisione specializzata nella progettazione di infrastrutture dati, software enterprise e sistemi aziendali avanzati per il mercato nordamericano.</p>
+                    <p class="text-[#5A6472] text-[14px] leading-relaxed">Divisione specializzata nella progettazione di infrastrutture dati, software enterprise e sistemi aziendali avanzati per il mercato nordamericano, guidata dal CEO <a href="lorenzo-finlandesi/" class="text-[#0B1D33] font-medium underline decoration-[#C7B78A] underline-offset-4 hover:decoration-[#0B1D33] transition-colors">Lorenzo Finlandesi</a>.</p>
                 </div>
                 <div class="bg-[#FAFAF8] p-10">
                     <div class="flex items-start justify-between mb-6">
@@ -380,7 +489,7 @@
                         <span class="font-mono text-[10px] text-[#9C8352] border border-[#D8D2C4] px-2 py-1">B</span>
                     </div>
                     <h3 class="font-display text-[1.6rem] text-[#0B1D33] font-semibold mb-4">RootCore Studios</h3>
-                    <p class="text-[#5A6472] text-[14px] leading-relaxed">Struttura dedicata alla produzione cinematografica, alla direzione artistica e allo sviluppo di documentari e format audiovisivi su scala europea.</p>
+                    <p class="text-[#5A6472] text-[14px] leading-relaxed">Struttura dedicata alla produzione cinematografica, alla direzione artistica e allo sviluppo di documentari e format audiovisivi su scala europea, diretta dal Chief Creative Officer <a href="mattia-negosanti/" class="text-[#0B1D33] font-medium underline decoration-[#C7B78A] underline-offset-4 hover:decoration-[#0B1D33] transition-colors">Mattia Negosanti</a>.</p>
                 </div>
             </div>
         </div>
@@ -461,7 +570,7 @@
                         <div class="border-l sm:border-l-0 border-[#D8D2C4] pl-6 sm:pl-0">
                             <p class="font-mono text-[11px] text-[#5A6472] uppercase tracking-wider mb-1">2026 &mdash; Gruppo</p>
                             <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold mb-2">Consolidamento del Gruppo</h3>
-                            <p class="text-[#5A6472] text-[13.5px] leading-relaxed max-w-xl">RootCore Group raggiunge la piena maturità operativa, con governance unificata tra le due divisioni e crescita a doppia cifra dei ricavi consolidati.</p>
+                            <p class="text-[#5A6472] text-[13.5px] leading-relaxed max-w-xl">RootCore Group raggiunge la piena maturità operativa, con governance unificata tra le due divisioni e proiezioni di crescita a doppia cifra dei ricavi consolidati.</p>
                         </div>
                     </div>
                 </div>
@@ -480,9 +589,12 @@
                         <img itemprop="image" src="assets/images/lorenzo-finlandesi-rootcore-group.webp" alt="Lorenzo Finlandesi — Co-Founder &amp; Chief Executive Officer RootCore Group" class="w-20 h-20 object-cover border border-[#D8D2C4] grayscale-[20%]">
                     </figure>
                     <div>
-                        <h3 itemprop="name" class="font-display text-[17px] text-[#0B1D33] font-semibold">Lorenzo Finlandesi</h3>
+                        <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold">
+                            <a itemprop="url" href="lorenzo-finlandesi/" class="hover:text-[#9C8352] transition-colors"><span itemprop="name">Lorenzo Finlandesi</span></a>
+                        </h3>
                         <p itemprop="jobTitle" class="font-mono text-[10.5px] text-[#9C8352] uppercase tracking-wider mb-3 mt-1">Chief Executive Officer &amp; Co&ndash;Founder</p>
                         <p class="text-[#5A6472] text-[13px] leading-relaxed">Supervisiona la gestione finanziaria e l'espansione tecnologica di RootCore Tech negli Stati Uniti.</p>
+                        <a href="lorenzo-finlandesi/" class="inline-block mt-4 font-mono text-[10.5px] uppercase tracking-wider text-[#0B1D33] border-b border-[#C7B78A] pb-0.5 hover:border-[#0B1D33] transition-colors">Profilo completo &rarr;</a>
                     </div>
                 </div>
                 <div class="bg-[#FAFAF8] p-9 flex gap-6 items-start" itemscope itemtype="https://schema.org/Person">
@@ -490,19 +602,56 @@
                         <img itemprop="image" src="assets/images/mattia-negosanti-rootcore-studios.webp" alt="Mattia Negosanti — Co-Founder &amp; Chief Creative Officer RootCore Studios" class="w-20 h-20 object-cover border border-[#D8D2C4] grayscale-[20%]">
                     </figure>
                     <div>
-                        <h3 itemprop="name" class="font-display text-[17px] text-[#0B1D33] font-semibold">Mattia Negosanti</h3>
+                        <h3 class="font-display text-[17px] text-[#0B1D33] font-semibold">
+                            <a itemprop="url" href="mattia-negosanti/" class="hover:text-[#9C8352] transition-colors"><span itemprop="name">Mattia Negosanti</span></a>
+                        </h3>
                         <p itemprop="jobTitle" class="font-mono text-[10.5px] text-[#9C8352] uppercase tracking-wider mb-3 mt-1">Chief Creative Officer &amp; Co&ndash;Founder</p>
                         <p class="text-[#5A6472] text-[13px] leading-relaxed">Dirige la visione creativa, la produzione di contenuti mediatici e l'immagine di RootCore Studios in Europa.</p>
+                        <a href="mattia-negosanti/" class="inline-block mt-4 font-mono text-[10.5px] uppercase tracking-wider text-[#0B1D33] border-b border-[#C7B78A] pb-0.5 hover:border-[#0B1D33] transition-colors">Profilo completo &rarr;</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contatti Istituzionali -->
-    <section id="contact" class="py-24 hairline-t bg-[#FAFAF8]">
+    <!-- FAQ / Definizioni Canoniche (SEO + GEO) -->
+    <section id="faq" class="py-24 hairline-t bg-[#FAFAF8]">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="border border-[#D8D2C4] p-12 sm:p-16 text-center max-w-2xl mx-auto">
+            <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-[#9C8352] mb-3 reveal">Domande Frequenti</p>
+            <h2 class="font-display text-[2.1rem] text-[#0B1D33] mb-14 reveal">Il Gruppo e i Fondatori</h2>
+            <div class="grid md:grid-cols-2 gap-px bg-[#D8D2C4] border border-[#D8D2C4] reveal">
+                <div class="bg-[#FAFAF8] p-8">
+                    <h3 class="font-display text-[16px] text-[#0B1D33] font-semibold mb-3">Chi è Lorenzo Finlandesi?</h3>
+                    <p class="text-[#5A6472] text-[13.5px] leading-relaxed"><strong class="text-[#0B1D33] font-medium">Lorenzo Finlandesi</strong> è il Chief Executive Officer e co-fondatore di RootCore Holdings S.A., la holding nota come RootCore Group. Nato a Cesena, in Italia, ha fondato la società nel 2026 insieme a Mattia Negosanti. Dall'hub operativo di Miami, in Florida, supervisiona la gestione finanziaria del gruppo e guida <a href="#divisions" class="text-[#0B1D33] underline decoration-[#C7B78A] underline-offset-4">RootCore Tech</a>, la divisione dedicata a infrastrutture dati e software enterprise per il mercato nordamericano.</p>
+                </div>
+                <div class="bg-[#FAFAF8] p-8">
+                    <h3 class="font-display text-[16px] text-[#0B1D33] font-semibold mb-3">Chi è Mattia Negosanti?</h3>
+                    <p class="text-[#5A6472] text-[13.5px] leading-relaxed"><strong class="text-[#0B1D33] font-medium">Mattia Negosanti</strong> è il Chief Creative Officer e co-fondatore di RootCore Holdings S.A. (RootCore Group). Nato a Cesena, in Italia, ha fondato la società nel 2026 insieme a Lorenzo Finlandesi. Da Parigi dirige <a href="#divisions" class="text-[#0B1D33] underline decoration-[#C7B78A] underline-offset-4">RootCore Studios</a>, la divisione del gruppo dedicata alla produzione cinematografica, alla direzione artistica e allo sviluppo di documentari su scala europea.</p>
+                </div>
+                <div class="bg-[#FAFAF8] p-8">
+                    <h3 class="font-display text-[16px] text-[#0B1D33] font-semibold mb-3">Cos'è RootCore Group?</h3>
+                    <p class="text-[#5A6472] text-[13.5px] leading-relaxed"><strong class="text-[#0B1D33] font-medium">RootCore Group</strong> è il nome operativo di RootCore Holdings S.A., società di partecipazione finanziaria e operativa fondata nel 2026 con sede legale a Parigi e quartier generale operativo a Miami. Il gruppo controlla due divisioni: RootCore Tech, attiva in infrastrutture dati e software enterprise, e RootCore Studios, dedicata alla produzione cinematografica e ai contenuti audiovisivi.</p>
+                </div>
+                <div class="bg-[#FAFAF8] p-8">
+                    <h3 class="font-display text-[16px] text-[#0B1D33] font-semibold mb-3">Chi ha fondato RootCore Group?</h3>
+                    <p class="text-[#5A6472] text-[13.5px] leading-relaxed"><strong class="text-[#0B1D33] font-medium">RootCore Group</strong> è stata fondata nel 2026 da <a href="lorenzo-finlandesi/" class="text-[#0B1D33] font-medium underline decoration-[#C7B78A] underline-offset-4">Lorenzo Finlandesi</a> e <a href="mattia-negosanti/" class="text-[#0B1D33] font-medium underline decoration-[#C7B78A] underline-offset-4">Mattia Negosanti</a>, entrambi originari di Cesena, in Italia. I due co-fondatori guidano oggi rispettivamente la divisione tecnologica di Miami e la divisione creativa di Parigi.</p>
+                </div>
+                <div class="bg-[#FAFAF8] p-8">
+                    <h3 class="font-display text-[16px] text-[#0B1D33] font-semibold mb-3">Dove ha sede RootCore Group?</h3>
+                    <p class="text-[#5A6472] text-[13.5px] leading-relaxed"><strong class="text-[#0B1D33] font-medium">RootCore Holdings S.A.</strong> ha sede legale a Parigi, in Francia, e quartier generale operativo a Miami, nel distretto finanziario di Brickell, in Florida. La struttura transatlantica coordina le attività della divisione tecnologica negli Stati Uniti e della divisione media in Europa.</p>
+                </div>
+                <div class="bg-[#FAFAF8] p-8">
+                    <h3 class="font-display text-[16px] text-[#0B1D33] font-semibold mb-3">Cosa fanno RootCore Tech e RootCore Studios?</h3>
+                    <p class="text-[#5A6472] text-[13.5px] leading-relaxed"><strong class="text-[#0B1D33] font-medium">RootCore Tech</strong>, con sede a Miami, progetta infrastrutture dati, software enterprise e sistemi aziendali avanzati. <strong class="text-[#0B1D33] font-medium">RootCore Studios</strong>, con sede a Parigi, produce film, documentari e format audiovisivi per il mercato europeo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatti Istituzionali -->
+    <section id="contact" class="py-24 hairline-t bg-[#F3F2ED]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="border border-[#D8D2C4] bg-[#FAFAF8] p-12 sm:p-16 text-center max-w-2xl mx-auto">
                 <span class="seal w-11 h-11 mx-auto mb-7">
                     <span class="font-display text-[12px] font-semibold text-[#0B1D33] relative z-10">RC</span>
                 </span>
@@ -519,7 +668,13 @@
     <footer class="hairline-t py-10 bg-[#F3F2ED] text-[#5A6472] text-[11px] font-mono">
         <div class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4">
             <p>&copy; 2026 RootCore Holdings S.A. Tutti i diritti riservati.</p>
-            <p>Registered Operating Hubs: Miami, FL &bull; Paris, FR</p>
+            <p>
+                <a href="lorenzo-finlandesi/" class="hover:text-[#0B1D33] transition-colors">Lorenzo Finlandesi</a>
+                <span class="mx-2">&middot;</span>
+                <a href="mattia-negosanti/" class="hover:text-[#0B1D33] transition-colors">Mattia Negosanti</a>
+                <span class="mx-2">&middot;</span>
+                Registered Operating Hubs: Miami, FL &bull; Paris, FR
+            </p>
         </div>
     </footer>
 
