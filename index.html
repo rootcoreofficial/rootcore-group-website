@@ -6,26 +6,14 @@
 
     <!-- Favicon classica per schede browser e Google SERP -->
     <link rel="shortcut icon" href="/favicon.ico">
+    
     <!-- Google Search Console & Indexing -->
     <meta name="google-site-verification" content="HRj__uRZ08RCe0ryL7_I6k-RGeGS6u5xM0fLho9UDVU" />
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#FAFAF8">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Site Name per Google e Social -->
     <meta property="og:site_name" content="RootCore Group">
-
-    <!-- Schema.org WebSite -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "RootCore Group",
-      "alternateName": ["RootCore", "RootCore Holdings"],
-      "url": "https://rootcore-group-website.vercel.app/"
-    }
-    </script>
 
     <!-- SEO Principale -->
     <title>RootCore Group | Holdings S.A. - Institutional Site</title>
@@ -61,28 +49,74 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Schema.org Structured Data (JSON-LD) -->
+    <!-- Schema.org Structured Data Unificato (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://rootcore-group-website.vercel.app/#website",
+          "url": "https://rootcore-group-website.vercel.app/",
+          "name": "RootCore Group",
+          "alternateName": ["RootCore", "RootCore Holdings"],
+          "publisher": {
+            "@id": "https://rootcore-group-website.vercel.app/#organization"
+          },
+          "inLanguage": "it-IT"
+        },
         {
           "@type": "Corporation",
           "@id": "https://rootcore-group-website.vercel.app/#organization",
           "name": "RootCore Group",
           "legalName": "RootCore Holdings S.A.",
           "alternateName": ["RootCore", "RootCore Tech", "RootCore Studios", "RootCore Azienda"],
-          "url": "https://rootcore-group-website.vercel.app",
+          "url": "https://rootcore-group-website.vercel.app/",
           "logo": "https://rootcore-group-website.vercel.app/assets/images/rootcore-group-logo.webp",
           "image": "https://rootcore-group-website.vercel.app/assets/images/rootcore-miami-hq.webp",
           "email": "rootcoregroup.official@gmail.com",
+          "foundingDate": "2016",
           "address": [
-            { "@type": "PostalAddress", "addressLocality": "Miami", "addressRegion": "FL", "addressCountry": "US" },
-            { "@type": "PostalAddress", "addressLocality": "Parigi", "addressCountry": "FR" }
+            {
+              "@type": "PostalAddress",
+              "addressLocality": "Miami",
+              "addressRegion": "FL",
+              "addressCountry": "US"
+            },
+            {
+              "@type": "PostalAddress",
+              "addressLocality": "Parigi",
+              "addressCountry": "FR"
+            }
           ],
           "founder": [
-            {"@type": "Person", "@id": "https://rootcore-group-website.vercel.app/#lorenzo"},
-            {"@type": "Person", "@id": "https://rootcore-group-website.vercel.app/#mattia"}
+            { "@id": "https://rootcore-group-website.vercel.app/#lorenzo" },
+            { "@id": "https://rootcore-group-website.vercel.app/#mattia" }
+          ],
+          "subOrganization": [
+            {
+              "@type": "Organization",
+              "@id": "https://rootcore-group-website.vercel.app/#tech",
+              "name": "RootCore Tech",
+              "description": "Divisione specializzata nella progettazione di infrastrutture dati, software enterprise e sistemi aziendali avanzati.",
+              "location": {
+                "@type": "PostalAddress",
+                "addressLocality": "Miami",
+                "addressRegion": "FL",
+                "addressCountry": "US"
+              }
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://rootcore-group-website.vercel.app/#studios",
+              "name": "RootCore Studios",
+              "description": "Struttura dedicata alla produzione cinematografica, direzione artistica e sviluppo di documentari.",
+              "location": {
+                "@type": "PostalAddress",
+                "addressLocality": "Parigi",
+                "addressCountry": "FR"
+              }
+            }
           ]
         },
         {
@@ -90,18 +124,34 @@
           "@id": "https://rootcore-group-website.vercel.app/#lorenzo",
           "name": "Lorenzo Finlandesi",
           "jobTitle": "Chief Executive Officer & Co-Founder",
-          "birthPlace": "Cesena, Italia",
-          "workLocation": "Miami, FL, USA",
-          "worksFor": {"@id": "https://rootcore-group-website.vercel.app/#organization"}
+          "birthPlace": {
+            "@type": "Place",
+            "name": "Cesena, Italia"
+          },
+          "workLocation": {
+            "@type": "Place",
+            "name": "Miami, FL, USA"
+          },
+          "worksFor": {
+            "@id": "https://rootcore-group-website.vercel.app/#organization"
+          }
         },
         {
           "@type": "Person",
           "@id": "https://rootcore-group-website.vercel.app/#mattia",
           "name": "Mattia Negosanti",
           "jobTitle": "Chief Creative Officer & Co-Founder",
-          "birthPlace": "Cesena, Italia",
-          "workLocation": "Parigi, Francia",
-          "worksFor": {"@id": "https://rootcore-group-website.vercel.app/#organization"}
+          "birthPlace": {
+            "@type": "Place",
+            "name": "Cesena, Italia"
+          },
+          "workLocation": {
+            "@type": "Place",
+            "name": "Parigi, Francia"
+          },
+          "worksFor": {
+            "@id": "https://rootcore-group-website.vercel.app/#organization"
+          }
         }
       ]
     }
@@ -297,7 +347,7 @@
                 <div class="bg-[#FAFAF8] p-8">
                     <p class="font-display italic text-[#9C8352] text-[15px] mb-4">Continuità</p>
                     <h3 class="font-display text-[16px] text-[#0B1D33] font-semibold mb-3">Orizzonte Multigenerazionale</h3>
-                    <p class="text-[#5A6472] text-[13.5px] leading-relaxed">RootCore Holdings opera con una logica di proprietà stabile, privileged la solidità industriale rispetto alla crescita speculativa.</p>
+                    <p class="text-[#5A6472] text-[13.5px] leading-relaxed">RootCore Holdings opera con una logica di proprietà stabile, privilegiando la solidità industriale rispetto alla crescita speculativa.</p>
                 </div>
                 <div class="bg-[#FAFAF8] p-8">
                     <p class="font-display italic text-[#9C8352] text-[15px] mb-4">Riservatezza</p>
