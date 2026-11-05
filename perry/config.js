@@ -5,7 +5,7 @@ window.PERRY_SITE = {
   functionsUrl: "https://uqjctqyyuszoqonvozad.supabase.co/functions/v1",
   downloadUrl: 'https://github.com/rootcoreofficial/rootcore-group-website/releases/latest/download/PERRY-Setup.exe',
   downloadNote: 'Windows 10/11 x64 · 91 MB. Se Windows mostra "app non riconosciuta", scegli Esegui comunque.',
-  version: '1.1.5',
-  sha256: 'b8188b0719e3d20de24cb4c90bce57f75cb69f77ab8f4a3d7b11873e8b67df8a',
+  version: '1.1.6',
+  sha256: 'b9446c3e4a8eb099f9fb236750cf70d3f4a5f7c6bf333add8f64495d7e639665',
   supportEmail: 'rootcoregroup.official@gmail.com'
 };
