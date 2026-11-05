@@ -1,0 +1,11 @@
+// Configurazione pubblica del sito PERRY. Stesso progetto Supabase dell app.
+window.PERRY_SITE = {
+  supabaseUrl: "https://uqjctqyyuszoqonvozad.supabase.co",
+  supabaseAnonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxamN0cXl5dXN6b3FvbnZvemFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM4NTM4MDEsImV4cCI6MjEwOTQyOTgwMX0.eEnD4TGuF3WS1UgXMEeejG-sXS6RsBMhNv_V0OvdgqM",
+  functionsUrl: "https://uqjctqyyuszoqonvozad.supabase.co/functions/v1",
+  downloadUrl: '',
+  downloadNote: '',
+  version: '1.1.0',
+  sha256: '',
+  supportEmail: 'rootcoregroup.official@gmail.com'
+};

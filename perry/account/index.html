@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0B0C0F">
+    <title>Account PERRY — licenza e dispositivi | RootCore</title>
+    <meta name="description" content="Accedi al tuo account PERRY: piano, chiave di licenza, dispositivi attivati e download.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/perry/perry.css">
+</head>
+<body class="account-page">
+    <a class="skip" href="#main">Salta al contenuto</a>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header" id="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="/perry/" aria-label="PERRY, un prodotto RootCore">
+                <span class="brand-word">PER<em>RY</em></span>
+                <span class="brand-by">by RootCore</span>
+            </a>
+            <nav class="nav" aria-label="Navigazione account">
+                <a href="/perry/#features">Funzioni</a>
+                <a href="/perry/#pricing">Piani</a>
+                <a href="/perry/#download">Download</a>
+            </nav>
+            <a class="header-cta" href="/perry/">
+                Torna a PERRY
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 7 7 17M15 17H7V9"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="account-main" id="main">
+        <div class="wrap">
+            <div class="account-head">
+                <span class="eyebrow">Area riservata</span>
+                <h1 id="page-title">Il tuo posto in sala.</h1>
+                <p id="page-sub">Lo stesso account dell'app PERRY. Da qui vedi il piano, la chiave di licenza e i dispositivi attivati.</p>
+            </div>
+
+            <!-- ============ AUTH ============ -->
+            <div class="auth-shell" id="auth-shell">
+                <aside class="auth-aside" aria-hidden="true">
+                    <div>
+                        <p class="word">Una chiave.<br><em>Due dispositivi.</em><br>Nessun pensiero.</p>
+                        <p style="margin-top:16px">La licenza si attiva una volta sul PC e resta lì. PERRY continua a funzionare in background e riceve le chiamate anche a finestra chiusa.</p>
+                    </div>
+                    <ul class="bullets">
+                        <li>Stesso account su sito e app.</li>
+                        <li>Chiave salvata in forma cifrata sul dispositivo.</li>
+                        <li>Gestione dispositivi e cambio macchina dall'area account.</li>
+                    </ul>
+                </aside>
+
+                <section class="auth-card" aria-labelledby="auth-title">
+                    <div class="auth-tabs" role="tablist" aria-label="Accesso o registrazione">
+                        <button type="button" role="tab" id="tab-login" aria-selected="true" data-mode="login">Entra</button>
+                        <button type="button" role="tab" id="tab-signup" aria-selected="false" data-mode="signup">Crea account</button>
+                    </div>
+
+                    <div class="form-msg" id="auth-msg" role="status" aria-live="polite"></div>
+
+                    <form id="login-form" novalidate>
+                        <div class="field">
+                            <label for="login-email">Email</label>
+                            <input id="login-email" type="email" autocomplete="username" placeholder="te@esempio.it" required>
+                        </div>
+                        <div class="field">
+                            <label for="login-pass">Password</label>
+                            <input id="login-pass" type="password" autocomplete="current-password" placeholder="La tua password" required>
+                        </div>
+                        <button class="btn btn-primary auth-submit" type="submit" id="login-btn">Entra nel tuo account</button>
+                        <p class="auth-fineprint">
+                            <a href="#" id="forgot-link">Password dimenticata?</a>
+                            <span aria-hidden="true"> · </span>
+                            <a href="/perry/#pricing">Non hai un account?</a>
+                        </p>
+                    </form>
+
+                    <form id="signup-form" novalidate hidden>
+                        <div class="field">
+                            <label for="signup-user">Username</label>
+                            <input id="signup-user" type="text" autocomplete="username" placeholder="come ti chiamano" minlength="3" maxlength="20" required>
+                            <div class="help">Da 3 a 20 caratteri: lettere, numeri, punto e trattobasso.</div>
+                        </div>
+                        <div class="field">
+                            <label for="signup-email">Email</label>
+                            <input id="signup-email" type="email" autocomplete="email" placeholder="te@esempio.it" required>
+                        </div>
+                        <div class="field">
+                            <label for="signup-pass">Password</label>
+                            <input id="signup-pass" type="password" autocomplete="new-password" placeholder="Almeno 6 caratteri" minlength="6" required>
+                        </div>
+                        <button class="btn btn-primary auth-submit" type="submit" id="signup-btn">Crea il tuo account</button>
+                        <p class="auth-fineprint">Creando l'account accetti di usare PERRY per la tua cerchia. PERRY non ha un piano gratuito: l'account serve per scegliere una licenza e gestirla.</p>
+                    </form>
+                </section>
+            </div>
+
+            <!-- ============ DASHBOARD ============ -->
+            <section class="dash" id="dash" aria-labelledby="dash-title">
+                <div class="dash-top">
+                    <div class="dash-who">
+                        <span class="dash-avatar" id="dash-avatar" aria-hidden="true">P</span>
+                        <div>
+                            <div class="name" id="dash-name">—</div>
+                            <div class="mail" id="dash-mail">—</div>
+                        </div>
+                    </div>
+                    <div class="dash-actions">
+                        <a class="btn btn-quiet" href="/perry/#download">Download</a>
+                        <button class="btn btn-quiet" type="button" id="logout-btn">Esci</button>
+                    </div>
+                </div>
+
+                <div class="form-msg" id="dash-msg" role="status" aria-live="polite"></div>
+
+                <h2 class="sr-only" id="dash-title">La tua licenza PERRY</h2>
+
+                <div class="dash-grid" id="dash-grid">
+                    <article class="card span-7">
+                        <div class="card-label">
+                            <span>Il tuo piano</span>
+                            <span class="badge" id="plan-badge">—</span>
+                        </div>
+                        <div class="plan-line">
+                            <span class="p" id="plan-name">—</span>
+                            <span class="r" id="plan-renew">—</span>
+                        </div>
+                        <p class="muted" id="plan-desc">—</p>
+                        <div class="dash-actions" id="plan-actions"></div>
+                    </article>
+
+                    <article class="card span-5">
+                        <div class="card-label">
+                            <span>Chiave di licenza</span>
+                            <span class="badge" id="key-state">—</span>
+                        </div>
+                        <div class="key-box is-locked" id="key-box">
+                            <code id="key-code">PERRY-•••••-•••••-•••••-•••••</code>
+                        </div>
+                        <p class="muted" id="key-help">La chiave compare solo dopo l'attivazione di un piano.</p>
+                        <div class="key-actions">
+                            <button class="btn btn-quiet" type="button" id="key-reveal" hidden>Mostra</button>
+                            <button class="btn btn-quiet" type="button" id="key-copy" hidden>Copia</button>
+                        </div>
+                    </article>
+
+                    <article class="card span-7">
+                        <div class="card-label"><span>Dispositivi attivati</span><span id="seats-label" class="badge">—</span></div>
+                        <ul class="activation-list" id="activation-list"></ul>
+                        <div class="empty-note" id="activation-empty">Nessun dispositivo attivato. La chiave si inserisce al primo avvio dell'app: i PC collegati compaiono qui.</div>
+                    </article>
+
+                    <article class="card span-5 upsell" id="upsell-card" hidden>
+                        <div class="card-label"><span>Passa alla licenza desktop</span></div>
+                        <h3>La sala ti aspetta.</h3>
+                        <p>Nessuna licenza attiva. PERRY non ha un piano gratuito: scegli il mensile o l'annuale e attivalo sul tuo PC.</p>
+                        <div class="upsell-actions">
+                            <button class="btn btn-primary" type="button" data-checkout="annual">Annuale · 79€</button>
+                            <button class="btn btn-ghost" type="button" data-checkout="monthly">Mensile · 9,99€</button>
+                        </div>
+                    </article>
+
+                    <article class="card span-12" id="download-card">
+                        <div class="card-label"><span>PERRY Desktop</span><span class="badge" id="download-badge">Windows</span></div>
+                        <div class="kv">
+                            <div class="kv-row"><span>Versione</span><span id="dl-version">1.1.0</span></div>
+                            <div class="kv-row"><span>Requisiti</span><span>Windows 10 / 11 · x64</span></div>
+                            <div class="kv-row"><span>Licenza</span><span id="dl-license">—</span></div>
+                        </div>
+                        <div class="dash-actions">
+                            <a class="btn btn-primary" id="dl-btn" href="/perry/#download">Vai al download</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-bottom" style="border-top:0;padding-top:0">
+                <span>&copy; 2026 RootCore Holdings S.A. · PERRY è un prodotto RootCore Tech.</span>
+                <span><a href="/perry/">PERRY</a> · <a href="/">RootCore Group</a> · <a href="mailto:rootcoregroup.official@gmail.com">Supporto</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/perry/config.js"></script>
+    <script src="/perry/account/account.js"></script>
+</body>
+</html>
