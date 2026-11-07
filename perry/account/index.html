@@ -114,6 +114,7 @@
                         </div>
                     </div>
                     <div class="dash-actions">
+                        <button class="btn btn-quiet" type="button" id="setpass-open">Cambia password</button>
                         <a class="btn btn-quiet" href="/perry/#download">Download</a>
                         <button class="btn btn-quiet" type="button" id="logout-btn">Esci</button>
                     </div>
@@ -178,6 +179,25 @@
                         <div class="dash-actions">
                             <a class="btn btn-primary" id="dl-btn" href="/perry/#download">Vai al download</a>
                         </div>
+                    </article>
+
+                    <article class="card span-12" id="setpass-card">
+                        <div class="card-label"><span>Password</span><span class="badge" id="setpass-badge">Account</span></div>
+                        <p class="muted">Scegli una nuova password per <span id="setpass-who">il tuo account</span>. Almeno 6 caratteri.</p>
+                        <form id="setpass-form" novalidate>
+                            <div class="field">
+                                <label for="setpass-1">Nuova password</label>
+                                <input id="setpass-1" type="password" autocomplete="new-password" placeholder="Almeno 6 caratteri" minlength="6" required>
+                            </div>
+                            <div class="field">
+                                <label for="setpass-2">Ripeti la nuova password</label>
+                                <input id="setpass-2" type="password" autocomplete="new-password" placeholder="Ripetila" minlength="6" required>
+                            </div>
+                            <div class="form-msg" id="setpass-msg" role="status" aria-live="polite"></div>
+                            <div class="dash-actions">
+                                <button class="btn btn-primary" type="submit" id="setpass-btn">Aggiorna password</button>
+                            </div>
+                        </form>
                     </article>
                 </div>
             </section>

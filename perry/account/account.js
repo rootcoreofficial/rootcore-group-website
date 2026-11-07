@@ -6,6 +6,7 @@
     var params = new URLSearchParams(location.search);
     var wantMode = params.get('mode') === 'signup' ? 'signup' : 'login';
     var wantPlan = ['monthly', 'annual'].indexOf(params.get('plan')) !== -1 ? params.get('plan') : null;
+    var hashParams = new URLSearchParams(location.hash.replace(/^#/, ''));
 
     var client = null;
     if (window.supabase && cfg.supabaseUrl && cfg.supabaseAnonKey) {
@@ -24,7 +25,8 @@
         revealed: false,
         loadingLicense: false,
         checkoutBusy: false,
-        releasing: false
+        releasing: false,
+        recovery: hashParams.get('type') === 'recovery'
     };
 
     var PLAN_LABEL = { monthly: 'Mensile', annual: 'Annuale', lifetime: 'Lifetime' };
@@ -85,6 +87,16 @@
             (user.user_metadata && (user.user_metadata.display_name || user.user_metadata.username)) || 'Perry';
         $('dash-name').textContent = name;
         $('dash-avatar').textContent = String(name).charAt(0).toUpperCase();
+        $('setpass-who').textContent = user.email || 'il tuo account';
+        if (state.recovery) {
+            setTimeout(function () {
+                var card = $('setpass-card');
+                if (card && card.scrollIntoView) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                msg($('setpass-msg'), 'Link verificato. Scegli qui sotto la nuova password.', 'ok');
+                var field = $('setpass-1');
+                if (field) field.focus();
+            }, 350);
+        }
         loadLicense();
     }
 
@@ -477,6 +489,39 @@
         showAuth();
     }
 
+    async function onSetPass(e) {
+        e.preventDefault();
+        if (!client) return;
+        var p1 = $('setpass-1').value;
+        var p2 = $('setpass-2').value;
+        if (p1.length < 6) {
+            msg($('setpass-msg'), 'La password deve avere almeno 6 caratteri.', 'error');
+            return;
+        }
+        if (p1 !== p2) {
+            msg($('setpass-msg'), 'Le due password non coincidono.', 'error');
+            return;
+        }
+        var btn = $('setpass-btn');
+        btn.disabled = true;
+        btn.textContent = 'Salvo…';
+        try {
+            var r = await client.auth.updateUser({ password: p1 });
+            if (r.error) throw r.error;
+            state.recovery = false;
+            $('setpass-form').reset();
+            msg($('setpass-msg'), 'Password aggiornata. Da ora entra con quella nuova.', 'ok');
+        } catch (err) {
+            var text = (err && err.message) ? err.message : 'Non riesco ad aggiornare la password. Riprova.';
+            if (/different from the old|should be different|same password/i.test(text)) {
+                text = 'La nuova password deve essere diversa da quella attuale.';
+            }
+            msg($('setpass-msg'), text, 'error');
+        }
+        btn.disabled = false;
+        btn.textContent = 'Aggiorna password';
+    }
+
     function wire() {
         if (!client) {
             msg($('auth-msg'), 'Configurazione del sito non disponibile. Riprova più tardi.', 'error');
@@ -488,6 +533,14 @@
         $('login-form').addEventListener('submit', onLogin);
         $('signup-form').addEventListener('submit', onSignup);
         $('logout-btn').addEventListener('click', logout);
+
+        $('setpass-form').addEventListener('submit', onSetPass);
+        $('setpass-open').addEventListener('click', function () {
+            var card = $('setpass-card');
+            if (card && card.scrollIntoView) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            var field = $('setpass-1');
+            if (field) setTimeout(function () { field.focus(); }, 380);
+        });
 
         $('forgot-link').addEventListener('click', async function (e) {
             e.preventDefault();
@@ -544,6 +597,11 @@
         }, { passive: true });
 
         client.auth.onAuthStateChange(function (event, session) {
+            if (event === 'PASSWORD_RECOVERY') {
+                state.recovery = true;
+                if (session) afterAuth(session);
+                return;
+            }
             if (event === 'SIGNED_OUT') {
                 showAuth();
             } else if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session && !state.session) {
