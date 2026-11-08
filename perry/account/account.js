@@ -171,7 +171,7 @@
         if (cfg.downloadUrl) {
             dlBtn.href = cfg.downloadUrl;
             dlBtn.textContent = 'Scarica PERRY';
-            $('dl-version').textContent = cfg.version || '1.1.11';
+            $('dl-version').textContent = cfg.version || '1.1.16';
         } else {
             dlBtn.href = '/perry/#download';
             dlBtn.textContent = 'Vai al download';
