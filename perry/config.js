@@ -5,6 +5,12 @@ window.PERRY_SITE = {
   functionsUrl: "https://uqjctqyyuszoqonvozad.supabase.co/functions/v1",
   downloadUrl: 'https://github.com/rootcoreofficial/rootcore-group-website/releases/latest/download/PERRY-Setup.exe',
   downloadNote: 'Windows 10/11 x64 · 91 MB. Se Windows mostra "app non riconosciuta", scegli Esegui comunque.',
+  // L'APK va caricato come asset della stessa release "latest".
+  apkUrl: 'https://github.com/rootcoreofficial/rootcore-group-website/releases/latest/download/PERRY.apk',
+  apkNote: 'Android 8+ · circa 38 MB. Al primo avvio consenti l\'installazione da questa fonte.',
+  // URL https del backend PERRY (Render). Vuoto = card iPhone in attesa.
+  pwaUrl: '',
+  pwaNote: 'Safari · Condividi → Aggiungi alla Home.',
   version: '1.1.21',
   sha256: '1cea16ec1f677918b550c2d7a399e39e48981eb0bb22dac564de706e5e3e680d',
   supportEmail: 'rootcoregroup.official@gmail.com'
