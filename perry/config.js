@@ -12,6 +12,6 @@ window.PERRY_SITE = {
   pwaUrl: '',
   pwaNote: 'Safari · Condividi → Aggiungi alla Home.',
   version: '1.1.26',
-  sha256: 'ead2070cdb513a39b51b5fd5516400df32c9e1031b44d1a1154d5d54ddc9a0c7',
+  sha256: 'e86a5c4aaa14721b4bbccba1258859a67f5318f4e1e78690ccbca37c61107cd1',
   supportEmail: 'rootcoregroup.official@gmail.com'
 };
