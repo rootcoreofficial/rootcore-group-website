@@ -11,7 +11,7 @@ window.PERRY_SITE = {
   // URL https del backend PERRY (Render). Vuoto = card iPhone in attesa.
   pwaUrl: '',
   pwaNote: 'Safari · Condividi → Aggiungi alla Home.',
-  version: '1.1.39',
-  sha256: 'b3e56020223631edca73050c713cb456b2c9cacf36cb786a2f7013ebb5fb32b7',
+  version: '1.1.40',
+  sha256: '27ff1d85691c0284d9612b9d14c150d5b1df278946dad30cf218b3205797c472',
   supportEmail: 'rootcoregroup.official@gmail.com'
 };
