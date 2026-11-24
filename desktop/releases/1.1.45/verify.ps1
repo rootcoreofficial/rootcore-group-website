@@ -27,6 +27,21 @@ Invoke-WebRequest 'https://github.com/rootcoreofficial/rootcore-group-website/re
 Hash-Is $previous '0d1e1e095604ab29a946849efd9e82a6a1cc5ffe0143e4755590f1ee68e0b91f'
 Hash-Is $update '61f439f51982090c5aeca6085ca94b7e97e2ab5c358297ce9ce3c93f72b39a44'
 Run-Installer $previous "/S /D=$install"
+$deadline = (Get-Date).AddSeconds(120)
+do {
+  $paths = @($install)
+  foreach ($hive in @('HKCU:', 'HKLM:')) {
+    foreach ($key in @('Software/797b3738-c027-55e0-801e-efcde42fbb67', 'Software/WOW6432Node/797b3738-c027-55e0-801e-efcde42fbb67')) {
+      $reg = Get-ItemProperty -LiteralPath "$hive/$key" -Name InstallLocation -ErrorAction SilentlyContinue
+      if ($reg -and $reg.InstallLocation) { $paths += $reg.InstallLocation }
+    }
+  }
+  $paths += "$env:LOCALAPPDATA/Programs/perry"
+  $found = $paths | Where-Object { Test-Path (Join-Path $_ 'resources/server/perry-server.exe') } | Select-Object -First 1
+  if ($found) { $install = $found; break }
+  Start-Sleep -Seconds 1
+} while ((Get-Date) -lt $deadline)
+if (!$found) { throw 'Installazione della base 1.1.44 non individuata' }
 $app = Join-Path $install 'PERRY.exe'
 $asar = Join-Path $install 'resources/app.asar'
 $backend = Join-Path $install 'resources/server/perry-server.exe'
