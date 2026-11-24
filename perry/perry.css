@@ -1690,3 +1690,57 @@ button { cursor: pointer; }
 #download-mirrors { display: flex; flex-wrap: wrap; gap: 4px 2px; align-items: baseline; }
 #download-mirrors a { color: var(--accent-2); text-decoration: underline; text-underline-offset: 2px; }
 #download-mirrors a:hover { color: var(--accent); }
+
+/* Matrice "tutto incluso" */
+.included-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.included-card {
+  background: var(--bg-1);
+  padding: clamp(20px, 2.4vw, 30px);
+  min-height: 210px;
+  position: relative;
+  transition: background .35s var(--ease), transform .35s var(--ease);
+}
+.included-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+}
+.included-card:hover { background: var(--bg-2); }
+.included-card:hover::before { opacity: 1; }
+.included-card .idx {
+  display: block;
+  font: 10px/1.4 var(--mono);
+  letter-spacing: .12em;
+  color: var(--accent-2);
+  margin-bottom: 20px;
+}
+.included-card h3 {
+  margin: 0 0 10px;
+  font: 500 clamp(20px, 2vw, 26px)/1.15 var(--serif);
+  letter-spacing: -.01em;
+}
+.included-card p {
+  margin: 0;
+  color: var(--text-1);
+  font-size: 13px;
+  line-height: 1.65;
+}
+@media (max-width: 980px) {
+  .included-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .included-grid { grid-template-columns: 1fr; }
+  .included-card { min-height: 0; }
+}
