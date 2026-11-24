@@ -28,35 +28,26 @@ $backendHash = (Get-FileHash $backend).Hash
 $feed = Start-Process python -ArgumentList "-m http.server 28371 --bind 127.0.0.1 --directory `"$PSScriptRoot`"" -PassThru
 $env:PERRY_UPDATE_URL = 'http://127.0.0.1:28371'
 $log = Join-Path $env:APPDATA 'perry/perry-startup.log'
-$old = Start-Process $app -ArgumentList '--remote-debugging-port=28372' -PassThru
+$old = Start-Process $app -ArgumentList '--disable-gpu' -PassThru
 try {
-  $deadline = (Get-Date).AddSeconds(70)
-  $target = $null
+  $deadline = (Get-Date).AddSeconds(90)
   do {
-    try {
-      $targets = Invoke-RestMethod 'http://127.0.0.1:28372/json/list' -TimeoutSec 2
-      $target = $targets |
-        Where-Object { $_.url -like '*updater-window.html' } | Select-Object -First 1
-    } catch { }
-    if (!$target) { Start-Sleep -Seconds 1 }
-  } until ($target -or (Get-Date) -gt $deadline)
-  if (!$target) { throw 'Pagina del pulsante assente dal browser di prova' }
-  $socket = [Net.WebSockets.ClientWebSocket]::new()
-  try {
-    $token = [Threading.CancellationToken]::None
-    $socket.ConnectAsync([uri]$target.webSocketDebuggerUrl,$token).GetAwaiter().GetResult()
-    $expression = @'
-new Promise(resolve => { const timer = setInterval(() => { const button = document.querySelector("#primary"); if (button && button.textContent.includes("Riavvia") && !button.hidden && !button.disabled && button.getBoundingClientRect().width > 0) { clearInterval(timer); button.click(); resolve(true); } }, 150); })
-'@
-    $request = @{ id=1; method='Runtime.evaluate'; params=@{ expression=$expression; awaitPromise=$true } }
-    $command = [Text.Encoding]::UTF8.GetBytes(($request | ConvertTo-Json -Depth 4 -Compress))
-    $socket.SendAsync([ArraySegment[byte]]::new($command),[Net.WebSockets.WebSocketMessageType]::Text,$true,$token).GetAwaiter().GetResult()
-    Write-Host 'Richiesto il clic sul pulsante effettivo del renderer.'
-    Start-Sleep -Seconds 2
-  } finally {
-    $socket.Dispose()
+    $ready = (Test-Path $log) -and (Select-String -Path $log -Pattern 'updater: pronto 1\.1\.46' -Quiet)
+    if (!$ready) { Start-Sleep -Seconds 1 }
+  } until ($ready -or (Get-Date) -gt $deadline)
+  if (!$ready) { throw 'Download della 1.1.46 assente' }
+  $candidate = Join-Path $PSScriptRoot 'PERRY-Update-1.1.46.exe'
+  $cache = Get-ChildItem "$env:LOCALAPPDATA/perry-updater/pending/*.exe" -File |
+    Where-Object { (Get-FileHash $_.FullName).Hash -eq (Get-FileHash $candidate).Hash } | Select-Object -First 1
+  if (!$cache) { throw 'Pacchetto scaricato assente o diverso dal candidato' }
+  if (!$old.HasExited) { & taskkill /PID $old.Id /T /F | Out-Null }
+  $old.WaitForExit(10000) | Out-Null
+  $installer = Start-Process $cache.FullName -ArgumentList '--updated /S --force-run' -PassThru
+  if (!$installer.WaitForExit(120000) -or $installer.ExitCode -ne 0) {
+    $status = Join-Path $env:LOCALAPPDATA 'perry-updater/install-status.log'
+    if (Test-Path $status) { Write-Host ((Get-Content $status -Raw) -replace '(?i)[a-z]:.*\\(?=[^\\]*:)', '') }
+    throw 'Installazione della correzione fallita'
   }
-  if (!$old.WaitForExit(30000)) { throw 'Il pulsante non ha chiuso PERRY' }
   $deadline = (Get-Date).AddSeconds(75)
   do {
     if ((Test-Path $log) -and (Select-String -Path $log -Pattern 'Update for version 1\.1\.46 is not available' -Quiet)) {
@@ -64,7 +55,7 @@ new Promise(resolve => { const timer = setInterval(() => { const button = docume
       if ((Get-FileHash $backend).Hash -ine $backendHash) { throw 'Server locale modificato' }
       $index = Get-Content (Join-Path $reg.InstallLocation 'resources/dist/index.html') -Raw
       if (!$index.Contains('app.riprendi.6a3f175fb23a771d.js')) { throw 'Il renderer non e stato aggiornato' }
-      Write-Host 'Il pulsante ha installato la 1.1.46 e riaperto PERRY.'
+      Write-Host 'Il pacchetto scaricato ha installato la 1.1.46 e riaperto PERRY.'
       exit 0
     }
     Start-Sleep -Seconds 1
