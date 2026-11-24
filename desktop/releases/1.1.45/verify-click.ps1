@@ -24,7 +24,8 @@ try {
   $target = $null
   do {
     try {
-      $target = Invoke-RestMethod 'http://127.0.0.1:28372/json/list' -TimeoutSec 2 |
+      $targets = Invoke-RestMethod 'http://127.0.0.1:28372/json/list' -TimeoutSec 2
+      $target = $targets |
         Where-Object { $_.url -like '*updater-window.html' } | Select-Object -First 1
     } catch { }
     if (!$target) { Start-Sleep -Seconds 1 }
@@ -34,7 +35,11 @@ try {
   try {
     $token = [Threading.CancellationToken]::None
     $socket.ConnectAsync([uri]$target.webSocketDebuggerUrl,$token).GetAwaiter().GetResult()
-    $command = [Text.Encoding]::UTF8.GetBytes('{"id":1,"method":"Runtime.evaluate","params":{"expression":"new Promise(resolve => { const timer = setInterval(() => { const button = document.querySelector(\\"#primary\\"); if (button && button.textContent.includes(\\"Riavvia\\") && !button.hidden && !button.disabled && button.getBoundingClientRect().width > 0) { clearInterval(timer); button.click(); resolve(true); } }, 150); })","awaitPromise":true}}'.Replace('\\"','\"'))
+    $expression = @'
+new Promise(resolve => { const timer = setInterval(() => { const button = document.querySelector("#primary"); if (button && button.textContent.includes("Riavvia") && !button.hidden && !button.disabled && button.getBoundingClientRect().width > 0) { clearInterval(timer); button.click(); resolve(true); } }, 150); })
+'@
+    $request = @{ id=1; method='Runtime.evaluate'; params=@{ expression=$expression; awaitPromise=$true } }
+    $command = [Text.Encoding]::UTF8.GetBytes(($request | ConvertTo-Json -Depth 4 -Compress))
     $socket.SendAsync([ArraySegment[byte]]::new($command),[Net.WebSockets.WebSocketMessageType]::Text,$true,$token).GetAwaiter().GetResult()
     Write-Host 'Richiesto il clic sul pulsante effettivo del renderer.'
     Start-Sleep -Seconds 2
