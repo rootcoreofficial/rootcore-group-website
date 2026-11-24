@@ -193,7 +193,7 @@
             box.classList.add('is-locked');
             stateBadge.textContent = 'Nessuna';
             stateBadge.className = 'badge';
-            help.textContent = 'PERRY non ha un piano gratuito. La chiave viene emessa con un pass mensile, annuale o lifetime. L\'attivazione non richiede un account.';
+            help.textContent = 'PERRY non ha un piano gratuito. Scegli un pass mensile, annuale o lifetime: codice, licenza e dispositivi restano in questo account.';
             reveal.hidden = true;
             copy.hidden = true;
             return;
