@@ -371,6 +371,7 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
                         </a>
                         <span class="hint" id="download-hint">La licenza si richiede dall'area account.</span>
+                        <span class="hint" id="download-mirrors" hidden></span>
                     </div>
                 </div>
 
@@ -526,12 +527,27 @@
             var cfg = window.PERRY_SITE || {};
             var dl = document.getElementById('download-btn');
             var hint = document.getElementById('download-hint');
+            var mirrors = document.getElementById('download-mirrors');
             var ver = document.getElementById('download-version');
             var sha = document.getElementById('download-sha');
             if (cfg.downloadUrl && dl) {
                 dl.href = cfg.downloadUrl;
                 dl.innerHTML = 'Scarica PERRY per Windows <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>';
                 hint.textContent = cfg.downloadNote || 'Installer firmato. Requisiti: Windows 10/11 x64.';
+                if (Array.isArray(cfg.downloadMirrors) && mirrors) {
+                    mirrors.hidden = false;
+                    mirrors.replaceChildren();
+                    var prefix = document.createTextNode('Mirror: ');
+                    mirrors.appendChild(prefix);
+                    cfg.downloadMirrors.forEach(function (mirror, index) {
+                        if (!mirror || !mirror.url) return;
+                        if (index) mirrors.appendChild(document.createTextNode(' · '));
+                        var a = document.createElement('a');
+                        a.href = mirror.url;
+                        a.textContent = mirror.label || 'Mirror';
+                        mirrors.appendChild(a);
+                    });
+                }
                 if (cfg.version && ver) ver.textContent = 'Versione ' + cfg.version;
                 if (cfg.sha256 && sha) {
                     sha.hidden = false;

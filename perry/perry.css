@@ -1686,3 +1686,7 @@ button { cursor: pointer; }
   .hero-title .line > span { transform: none; }
   .grain { display: none; }
 }
+
+#download-mirrors { display: flex; flex-wrap: wrap; gap: 4px 2px; align-items: baseline; }
+#download-mirrors a { color: var(--accent-2); text-decoration: underline; text-underline-offset: 2px; }
+#download-mirrors a:hover { color: var(--accent); }
