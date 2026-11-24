@@ -140,19 +140,34 @@
             });
             actions.appendChild(pick);
         } else if (plan === 'monthly' || plan === 'annual') {
-            var portal = document.createElement('button');
-            portal.type = 'button';
-            portal.className = 'btn btn-ghost';
-            portal.textContent = 'Gestisci abbonamento';
-            portal.addEventListener('click', openPortal);
-            actions.appendChild(portal);
-            if (plan === 'monthly') {
-                var up = document.createElement('button');
-                up.type = 'button';
-                up.className = 'btn btn-quiet';
-                up.textContent = 'Passa all\'annuale';
-                up.setAttribute('data-checkout', 'annual');
-                actions.appendChild(up);
+            if (lic.source === 'nowpayments') {
+                var renew = document.createElement('a');
+                renew.className = 'btn btn-ghost';
+                renew.href = '/perry/buy/?plan=' + plan;
+                renew.textContent = 'Rinnova con un codice';
+                actions.appendChild(renew);
+                if (plan === 'monthly') {
+                    var yearly = document.createElement('a');
+                    yearly.className = 'btn btn-quiet';
+                    yearly.href = '/perry/buy/?plan=annual';
+                    yearly.textContent = 'Passa all\'annuale';
+                    actions.appendChild(yearly);
+                }
+            } else {
+                var portal = document.createElement('button');
+                portal.type = 'button';
+                portal.className = 'btn btn-ghost';
+                portal.textContent = 'Gestisci abbonamento';
+                portal.addEventListener('click', openPortal);
+                actions.appendChild(portal);
+                if (plan === 'monthly') {
+                    var up = document.createElement('button');
+                    up.type = 'button';
+                    up.className = 'btn btn-quiet';
+                    up.textContent = 'Passa all\'annuale';
+                    up.setAttribute('data-checkout', 'annual');
+                    actions.appendChild(up);
+                }
             }
         } else if (plan === 'lifetime') {
             var span = document.createElement('span');
