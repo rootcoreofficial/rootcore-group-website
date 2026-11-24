@@ -31,8 +31,8 @@
 
     var PLAN_LABEL = { monthly: 'Mensile', annual: 'Annuale', lifetime: 'Lifetime' };
     var PLAN_DESC = {
-        monthly: 'Licenza desktop attiva con rinnovo mensile. Disdici quando vuoi.',
-        annual: 'Licenza desktop attiva per un anno. Due mesi in meno rispetto al mensile.',
+        monthly: 'Pass desktop di 30 giorni. Nessun rinnovo automatico.',
+        annual: 'Licenza desktop attiva per 12 mesi. Nessun rinnovo automatico.',
         lifetime: 'Licenza a vita, legata al tuo account. Nessun rinnovo.'
     };
     var NO_LICENSE_DESC = 'Nessuna licenza attiva. PERRY non ha un piano gratuito: scegli un piano per attivare l\'app.';
@@ -171,7 +171,7 @@
         if (cfg.downloadUrl) {
             dlBtn.href = cfg.downloadUrl;
             dlBtn.textContent = 'Scarica PERRY';
-            $('dl-version').textContent = cfg.version || '1.1.48';
+            $('dl-version').textContent = cfg.version || '1.1.49';
         } else {
             dlBtn.href = '/perry/#download';
             dlBtn.textContent = 'Vai al download';
@@ -192,7 +192,7 @@
             box.classList.add('is-locked');
             stateBadge.textContent = 'Nessuna';
             stateBadge.className = 'badge';
-            help.textContent = 'PERRY non ha un piano gratuito. La chiave viene emessa con un piano Mensile, Annuale o con una licenza lifetime su invito.';
+            help.textContent = 'PERRY non ha un piano gratuito. La chiave viene emessa con un pass mensile, annuale o lifetime. L\'attivazione non richiede un account.';
             reveal.hidden = true;
             copy.hidden = true;
             return;
@@ -352,32 +352,9 @@
         }
     }
 
-    async function checkout(plan) {
-        if (!client || state.checkoutBusy) return;
-        if (!state.session) {
-            setMode('login');
-            msg($('auth-msg'), 'Entra nel tuo account per scegliere un piano.', 'error');
-            return;
-        }
-        state.checkoutBusy = true;
-        clearMsg($('dash-msg'));
-        var buttons = document.querySelectorAll('[data-checkout]');
-        buttons.forEach(function (b) { b.setAttribute('aria-disabled', 'true'); });
-
-        try {
-            var res = await client.functions.invoke('stripe-checkout', { method: 'POST', body: { plan: plan } });
-            if (!res.error && res.data && res.data.url) {
-                location.href = res.data.url;
-                return;
-            }
-            var message = (res.data && res.data.message) || 'Pagamenti in attivazione. Scrivici per attivare il piano.';
-            msg($('dash-msg'), message + ' · perryadmin@proton.me', 'error');
-        } catch (_) {
-            msg($('dash-msg'), 'Pagamenti in attivazione. Scrivi a perryadmin@proton.me per attivare il piano.', 'error');
-        }
-
-        state.checkoutBusy = false;
-        buttons.forEach(function (b) { b.removeAttribute('aria-disabled'); });
+    function checkout(plan) {
+        if (!plan) return;
+        location.assign('/perry/buy/?plan=' + encodeURIComponent(plan));
     }
 
     async function onLogin(event) {

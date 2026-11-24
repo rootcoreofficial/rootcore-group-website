@@ -6,13 +6,13 @@ window.PERRY_SITE = {
   downloadUrl: 'https://pub-265e88300621488181fee09ef8fbca79.r2.dev/PERRY-Setup.exe',
   downloadNote: 'Windows 10/11 x64 · 110 MB. Se Windows mostra "app non riconosciuta", scegli Esegui comunque.',
   downloadMirrors: [
-    { label: 'GitHub', url: 'https://github.com/rootcoreofficial/rootcore-group-website/releases/download/v1.1.48/PERRY-Setup.exe' },
-    { label: 'GitHub versione', url: 'https://github.com/rootcoreofficial/rootcore-group-website/releases/download/v1.1.48/PERRY-Setup-1.1.48.exe' }
+    { label: 'GitHub', url: 'https://github.com/rootcoreofficial/rootcore-group-website/releases/download/v1.1.49/PERRY-Setup.exe' },
+    { label: 'GitHub versione', url: 'https://github.com/rootcoreofficial/rootcore-group-website/releases/download/v1.1.49/PERRY-Setup-1.1.49.exe' }
   ],
   // URL https del backend PERRY (Render). Vuoto = card iPhone in attesa.
   pwaUrl: '',
   pwaNote: 'Safari · Condividi → Aggiungi alla Home.',
-  version: '1.1.48',
-  sha256: 'e7b0bd4a2037d4e87ec3a283ba7cd08e9016035d9ef23d98a2e6fdfd2cbeed6d',
+  version: '1.1.49',
+  sha256: '775dcea41e4f267477dbb0a986a0c8c9c12d508eba852cc0bada077157ca4177',
   supportEmail: 'perryadmin@proton.me'
 };

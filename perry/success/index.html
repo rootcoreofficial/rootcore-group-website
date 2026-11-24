@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0B0C0F">
+    <meta name="referrer" content="no-referrer">
+    <title>Consegna codice PERRY | RootCore</title>
+    <meta name="description" content="Ritira il codice PERRY dopo il pagamento crypto o recuperalo con l'ordine e l'email usata al checkout.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/perry/perry.css">
+</head>
+<body class="account-page">
+    <a class="skip" href="#main">Salta al contenuto</a>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header" id="site-header">
+        <div class="wrap header-inner">
+            <a class="brand" href="/perry/" aria-label="PERRY, un prodotto RootCore">
+                <span class="brand-word">PER<em>RY</em></span>
+                <span class="brand-by">by RootCore</span>
+            </a>
+            <nav class="nav" aria-label="Navigazione consegna">
+                <a href="/perry/#pricing">Piani</a>
+                <a href="/perry/#faq">FAQ</a>
+            </nav>
+            <a class="header-cta" href="/perry/account/">
+                Account
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="account-main" id="main">
+        <div class="wrap success-wrap">
+            <div class="account-head">
+                <span class="eyebrow">Consegna</span>
+                <h1 id="page-title">Il tuo <em>codice.</em></h1>
+                <p id="page-sub">Questa pagina controlla l'ordine e mostra il codice appena il pagamento è confermato.</p>
+            </div>
+
+            <section class="success-card" id="status-card" aria-labelledby="success-title">
+                <span class="status-pill" id="status-pill"><i></i><span id="status-label">Controllo ordine</span></span>
+                <h2 class="success-title" id="success-title">Un momento.</h2>
+                <p class="success-text" id="success-text">Sto leggendo lo stato del pagamento.</p>
+
+                <div class="code-box" id="code-box" hidden>
+                    <span class="code-label">Codice di licenza PERRY</span>
+                    <code class="code-value" id="code-value"></code>
+                    <div class="code-actions">
+                        <button class="btn btn-primary" type="button" id="copy-code">Copia il codice</button>
+                        <a class="btn btn-ghost" href="/perry/#download">Scarica PERRY</a>
+                    </div>
+                </div>
+
+                <ol class="success-steps">
+                    <li>Apri PERRY e incolla il codice nella schermata di licenza.</li>
+                    <li>Premi il pulsante: l'app crea un profilo ospite senza email né password.</li>
+                    <li>Il codice resta legato a questo PC e vale per due dispositivi.</li>
+                </ol>
+
+                <div class="success-actions" id="success-actions">
+                    <a class="btn btn-quiet" href="/perry/buy/?plan=annual" id="again-link">Acquista un altro piano</a>
+                    <a class="btn btn-quiet" href="mailto:perryadmin@proton.me">Assistenza</a>
+                </div>
+
+                <p class="muted-line" id="finish-note">Conserva il codice: è personale, non va condiviso e non viene rimandato via email.</p>
+            </section>
+
+            <section class="recover-card" id="recover-card" hidden aria-labelledby="recover-title">
+                <h2 id="recover-title">Recupera il codice</h2>
+                <p class="muted-line">Inserisci l'ID ordine e l'email che hai lasciato al checkout. Se non hai messo un'email, scrivi all'assistenza.</p>
+                <form id="recover-form" novalidate>
+                    <div class="field">
+                        <label for="recover-order">ID ordine</label>
+                        <input id="recover-order" type="text" autocomplete="off" placeholder="00000000-0000-0000-0000-000000000000" maxlength="36" required>
+                    </div>
+                    <div class="field">
+                        <label for="recover-email">Email del checkout</label>
+                        <input id="recover-email" type="email" autocomplete="email" placeholder="te@esempio.it" maxlength="254" required>
+                    </div>
+                    <button class="btn btn-primary" type="submit" id="recover-submit">Mostra il codice</button>
+                </form>
+                <p class="buy-msg" id="recover-msg" role="status" aria-live="polite"></p>
+            </section>
+
+            <p class="recover-link" id="recover-link">
+                Hai perso questa pagina? <a href="?recover=1">Recupera con ID ordine ed email</a>.
+            </p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-bottom">
+                <span>© 2026 RootCore Group. PERRY è un prodotto RootCore Tech.</span>
+                <span><a href="/perry/account/">Account</a> · <a href="mailto:perryadmin@proton.me">Assistenza</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/perry/config.js"></script>
+    <script src="/perry/success/success.js" defer></script>
+</body>
+</html>

@@ -66,29 +66,44 @@ CORS consentito: `www.rootcoregroup.com`, `rootcoregroup.com`,
 piattaforma: l'app le chiama con la anon key (precheck) o con il token
 dell'utente (attivazione, refresh, dashboard).
 
-## 5. Stripe
+## 5. NOWPayments
 
-1. Crea due prezzi ricorrenti: 9,99 €/mese e 79 €/anno.
-2. Webhook: `https://<project-ref>.supabase.co/functions/v1/stripe-webhook`.
-3. Eventi: `checkout.session.completed`, `customer.subscription.created`,
-   `customer.subscription.updated`, `customer.subscription.deleted`,
-   `invoice.paid`, `invoice.payment_failed`.
+Il canale attivo è NOWPayments. I piani e i prezzi stanno nella migrazione
+`035_commerce_c1.sql`; il codice non decide mai l'importo.
 
-La chiave viene generata solo al primo pagamento riuscito e mostrata
-nell'area account del sito.
+1. Secret Edge: `NOWPAYMENTS_API_KEY`, `NOWPAYMENTS_IPN_KEY`, `PERRY_SITE_URL`.
+2. Webhook: `https://<project-ref>.supabase.co/functions/v1/nowpayments-webhook`,
+   deployato con `--no-verify-jwt`. La firma HMAC-SHA512 è verificata sulla
+   canonicalizzazione del payload; solo `finished` emette il codice.
+3. Checkout: `create-order` crea l'invoice ospitata su NOWPayments e salva
+   `token` (hash), `invoice_id` e importo. Il successo torna su
+   `/perry/success/?order=…&token=…`.
+4. Consegna: `order-status` mostra il codice cifrato solo con ordine + token.
+   `recover-order` lo ripete con ordine + email (se lasciata al checkout).
+5. Attivazione: `license-precheck` riconosce i codici; `license-activate`
+   crea la sessione anonima Supabase e lega il dispositivo. Lo stesso codice
+   copre due dispositivi; il refresh del secondo passa da `license-refresh`.
+
+Le funzioni Stripe restano nel progetto come canale legacy, ma il sito non
+le usa più per i nuovi acquisti.
 
 ## 6. Contratto API
 
 | Funzione | Auth | Uso |
 | --- | --- | --- |
-| `license-precheck` | no | verifica formato/esistenza chiave prima del login |
-| `license-activate` | JWT | lega la chiave all'account e al dispositivo, emette il lease |
-| `license-refresh` | JWT | rinnova il lease (30 giorni) |
+| `license-precheck` | no | verifica chiave/codice e disponibilità posti |
+| `license-activate` | JWT (anche anonimo) | lega la chiave al dispositivo, emette il lease |
+| `license-refresh` | JWT (anche anonimo) | rinnova il lease (30 giorni) per dispositivo |
 | `license-me` | JWT | piano, chiave, attivazioni per la dashboard |
 | `license-deactivate` | JWT | libera un posto macchina |
-| `stripe-checkout` | JWT | crea la sessione di pagamento |
-| `stripe-portal` | JWT | gestione abbonamento |
-| `stripe-webhook` | firma Stripe | emissione/rinnovo licenza |
+| `commerce-plans` | no | piani attivi, prezzi e disponibilità |
+| `create-order` | anon key | crea ordine e invoice NOWPayments |
+| `order-status` | token ordine | stato e consegna del codice |
+| `recover-order` | ordine + email | recupero del codice |
+| `nowpayments-webhook` | firma IPN | chiusura ordine ed emissione codice |
+| `stripe-checkout` | JWT | canale legacy |
+| `stripe-portal` | JWT | canale legacy |
+| `stripe-webhook` | firma Stripe | canale legacy |
 
 Il lease è firmato Ed25519. La chiave pubblica è in
 `rootcore-license-admin/public-key.pem`; la privata resta solo nei secret.
