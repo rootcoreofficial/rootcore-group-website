@@ -34,7 +34,7 @@ try {
     }
     Start-Sleep 1
   } while ((Get-Date) -lt $deadline)
-  throw 'L’updater storico non ha segnalato la base 1.1.44'
+  throw 'Il client storico non ha segnalato la base 1.1.44'
 } finally {
   Get-Process PERRY -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq $exe } | Stop-Process -Force
 }
