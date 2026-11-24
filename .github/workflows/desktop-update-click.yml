@@ -1,0 +1,20 @@
+name: Verifica pulsante di aggiornamento desktop
+on:
+  push:
+    branches: [fix/desktop-update-restart]
+  pull_request:
+    paths:
+      - 'desktop/releases/**/verify-click.ps1'
+      - '.github/workflows/desktop-update-click.yml'
+permissions:
+  contents: read
+jobs:
+  click:
+    runs-on: windows-2022
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - shell: pwsh
+        run: ./desktop/releases/1.1.45/verify-click.ps1
