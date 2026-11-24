@@ -218,6 +218,10 @@
             });
             var data = null;
             try { data = await res.json(); } catch (_) {}
+            if (res.status === 401) {
+                redirectToAccount();
+                return;
+            }
             if (res.ok && data && data.invoiceUrl) {
                 setMsg('Ordine creato. Ti porto al checkout di NOWPayments…', 'ok');
                 location.assign(data.invoiceUrl);
