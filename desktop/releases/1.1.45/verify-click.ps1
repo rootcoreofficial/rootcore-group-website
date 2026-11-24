@@ -18,32 +18,29 @@ $app = Join-Path $reg.InstallLocation 'PERRY.exe'
 $feed = Start-Process python -ArgumentList "-m http.server 28371 --bind 127.0.0.1 --directory `"$PSScriptRoot`"" -PassThru
 $env:PERRY_UPDATE_URL = 'http://127.0.0.1:28371'
 $log = Join-Path $env:APPDATA 'perry/perry-startup.log'
-Add-Type -AssemblyName UIAutomationClient,UIAutomationTypes
-$ae = [System.Windows.Automation.AutomationElement]
-$tree = [System.Windows.Automation.TreeScope]
-$condition = [System.Windows.Automation.PropertyCondition]::new($ae::NameProperty,'Riavvia e aggiorna')
-$old = Start-Process $app -ArgumentList '--force-renderer-accessibility' -PassThru
+$old = Start-Process $app -ArgumentList '--remote-debugging-port=28372' -PassThru
 try {
-  $deadline = (Get-Date).AddSeconds(100)
-  $clicked = $false
+  $deadline = (Get-Date).AddSeconds(70)
+  $target = $null
   do {
-    $wins = $ae::RootElement.FindAll($tree::Children, [System.Windows.Automation.Condition]::TrueCondition)
-    foreach ($win in $wins) {
-      if ($win.Current.ProcessId -ne $old.Id) { continue }
-      $button = $win.FindFirst($tree::Descendants, $condition)
-      if ($button -and $button.Current.IsEnabled) {
-        $invoker = $null
-        if ($button.TryGetCurrentPattern([System.Windows.Automation.InvokePattern]::Pattern,[ref]$invoker)) {
-          Write-Host 'Invoco il pulsante effettivo del renderer tramite UI Automation.'
-          $invoker.Invoke()
-          $clicked = $true
-          break
-        }
-      }
-    }
-    if (!$clicked) { Start-Sleep -Seconds 1 }
-  } until ($clicked -or (Get-Date) -gt $deadline)
-  if (!$clicked) { throw 'Il pulsante Aggiornamenti non e stato trovato nella sessione grafica' }
+    try {
+      $target = Invoke-RestMethod 'http://127.0.0.1:28372/json/list' -TimeoutSec 2 |
+        Where-Object { $_.url -like '*updater-window.html' } | Select-Object -First 1
+    } catch { }
+    if (!$target) { Start-Sleep -Seconds 1 }
+  } until ($target -or (Get-Date) -gt $deadline)
+  if (!$target) { throw 'Pagina del pulsante assente dal browser di prova' }
+  $socket = [Net.WebSockets.ClientWebSocket]::new()
+  try {
+    $token = [Threading.CancellationToken]::None
+    $socket.ConnectAsync([uri]$target.webSocketDebuggerUrl,$token).GetAwaiter().GetResult()
+    $command = [Text.Encoding]::UTF8.GetBytes('{"id":1,"method":"Runtime.evaluate","params":{"expression":"new Promise(resolve => { const timer = setInterval(() => { const button = document.querySelector(\\"#primary\\"); if (button && button.textContent.includes(\\"Riavvia\\") && !button.hidden && !button.disabled && button.getBoundingClientRect().width > 0) { clearInterval(timer); button.click(); resolve(true); } }, 150); })","awaitPromise":true}}'.Replace('\\"','\"'))
+    $socket.SendAsync([ArraySegment[byte]]::new($command),[Net.WebSockets.WebSocketMessageType]::Text,$true,$token).GetAwaiter().GetResult()
+    Write-Host 'Richiesto il clic sul pulsante effettivo del renderer.'
+    Start-Sleep -Seconds 2
+  } finally {
+    $socket.Dispose()
+  }
   if (!$old.WaitForExit(30000)) { throw 'Il pulsante non ha chiuso PERRY' }
   $deadline = (Get-Date).AddSeconds(75)
   do {
