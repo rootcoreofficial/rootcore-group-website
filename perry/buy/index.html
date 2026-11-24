@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="dark">
     <meta name="theme-color" content="#0B0C0F">
     <title>Acquista PERRY — pagamento crypto, codice immediato | RootCore</title>
-    <meta name="description" content="Acquista PERRY con NOWPayments: pass mensile, annuale o lifetime. Ricevi un codice, attivalo sul PC senza account.">
+    <meta name="description" content="Acquista PERRY con NOWPayments: pass mensile, annuale o lifetime. Crea l'account, paga in crypto e ritrova codice e licenza nella dashboard.">
     <meta name="robots" content="noindex, follow">
     <link rel="icon" href="/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,8 +40,8 @@
         <div class="wrap">
             <div class="account-head">
                 <span class="eyebrow">Checkout crypto</span>
-                <h1>Il tuo posto, <em>senza account.</em></h1>
-                <p>Paghi con NOWPayments, ricevi un codice e lo inserisci una volta in PERRY. La licenza resta sul PC; non chiediamo email né password per attivarla.</p>
+                <h1>Il tuo posto, <em>nel tuo account.</em></h1>
+                <p>Crea o usa il tuo account PERRY, paga con NOWPayments e ritrova codice e licenza nella dashboard. L'app si attiva col codice, senza reinserire la password.</p>
             </div>
 
             <div class="buy-grid">
@@ -66,7 +66,7 @@
                         <div class="field">
                             <label for="buy-email">Email per recuperare il codice <span class="muted-line">(facoltativa)</span></label>
                             <input id="buy-email" type="email" autocomplete="email" placeholder="te@esempio.it" maxlength="254">
-                            <div class="help">La salviamo solo cifrata, per ritrovare il codice. Non crea un account e non serve per attivare.</div>
+                            <div class="help">Serve solo per il recupero. Il codice resta comunque nella dashboard del tuo account.</div>
                         </div>
                         <button class="btn btn-primary" type="submit" id="buy-submit" disabled>
                             Paga con crypto · NOWPayments
@@ -79,7 +79,7 @@
                     <div class="buy-badges" aria-label="Caratteristiche">
                         <span class="buy-badge">2 dispositivi</span>
                         <span class="buy-badge">Codice immediato</span>
-                        <span class="buy-badge">Nessun account</span>
+                        <span class="buy-badge">Dashboard inclusa</span>
                         <span class="buy-badge">1080p verificato</span>
                     </div>
                 </section>
@@ -87,8 +87,8 @@
                 <aside class="buy-side">
                     <h2>Come funziona</h2>
                     <p><b>01 · Paghi.</b> Apri il checkout ospitato di NOWPayments e scegli la crypto. L'importo è quello del piano, senza rinnovi.</p>
-                    <p><b>02 · Ricevi il codice.</b> Appena la transazione risulta <span class="inline-code">finished</span>, la pagina di consegna mostra il codice. Conservalo.</p>
-                    <p><b>03 · Attivi.</b> Apri PERRY, incolla il codice nella schermata di licenza e premi il pulsante. Il profilo ospite viene creato in automatico.</p>
+                    <p><b>02 · Ricevi il codice.</b> Appena la transazione risulta <span class="inline-code">finished</span>, il codice compare qui e nella dashboard del tuo account.</p>
+                    <p><b>03 · Attivi.</b> Apri PERRY, incolla il codice nella schermata di licenza e premi il pulsante. Il dispositivo si lega alla licenza del tuo account.</p>
                     <p class="warn"><b>Niente 4K.</b> PERRY consegna fino a 1080p verificato sul flusso decodificato. Non vendiamo un'etichetta 4K che non possiamo mantenere.</p>
                     <p><b>Due posti macchina.</b> Lo stesso PC reinstallato non consuma un posto in più. Il codice è personale e non va condiviso.</p>
                 </aside>
@@ -111,6 +111,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/perry/config.js"></script>
     <script src="/perry/buy/buy.js" defer></script>
 </body>

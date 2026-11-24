@@ -5,7 +5,8 @@
     var $ = function (id) { return document.getElementById(id); };
     var params = new URLSearchParams(location.search);
     var wantMode = params.get('mode') === 'signup' ? 'signup' : 'login';
-    var wantPlan = ['monthly', 'annual'].indexOf(params.get('plan')) !== -1 ? params.get('plan') : null;
+    var PLAN_SLUGS = ['monthly', 'annual', 'founder_annual', 'christmas_annual', 'lifetime', 'founder_lifetime', 'christmas_lifetime'];
+    var wantPlan = PLAN_SLUGS.indexOf(params.get('plan')) !== -1 ? params.get('plan') : null;
     var hashParams = new URLSearchParams(location.hash.replace(/^#/, ''));
 
     var client = null;
@@ -446,7 +447,15 @@
         showDashboard(session);
 
         if (wantPlan) {
-            msg($('dash-msg'), 'Piano selezionato: ' + (wantPlan === 'annual' ? 'Annuale' : 'Mensile') + '. Apro il pagamento…', 'ok');
+            var planName = wantPlan === 'annual' ? 'Annuale'
+                : wantPlan === 'monthly' ? 'Mensile'
+                : wantPlan === 'lifetime' ? 'Lifetime'
+                : wantPlan === 'founder_annual' ? 'Annuale Fondatore'
+                : wantPlan === 'founder_lifetime' ? 'Lifetime Fondatore'
+                : wantPlan === 'christmas_annual' ? 'Annuale Christmas'
+                : wantPlan === 'christmas_lifetime' ? 'Lifetime Christmas'
+                : wantPlan;
+            msg($('dash-msg'), 'Piano selezionato: ' + planName + '. Apro il pagamento…', 'ok');
             setTimeout(function () { checkout(wantPlan); }, 1200);
         }
         if (params.get('checkout') === 'success') {

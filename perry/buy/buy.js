@@ -5,6 +5,13 @@
     var $ = function (id) { return document.getElementById(id); };
     var params = new URLSearchParams(location.search);
     var slug = (params.get('plan') || 'annual').toLowerCase();
+    var authClient = window.supabase && cfg.supabaseUrl && cfg.supabaseAnonKey
+        ? window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, {
+            auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+        })
+        : null;
+    var session = null;
+    var authChecked = false;
 
     var FALLBACK = {
         monthly: {
@@ -72,6 +79,29 @@
         el.className = 'buy-msg' + (kind ? ' is-' + kind : '');
     }
 
+    function redirectToAccount() {
+        var next = '/perry/buy/?plan=' + encodeURIComponent(slug);
+        location.replace('/perry/account/?plan=' + encodeURIComponent(slug) + '&mode=login&next=' + encodeURIComponent(next));
+    }
+
+    async function loadSession() {
+        if (!authClient) return false;
+        try {
+            var out = await authClient.auth.getSession();
+            session = out && out.data ? out.data.session : null;
+        } catch (_) {
+            session = null;
+        }
+        authChecked = true;
+        if (!session) {
+            redirectToAccount();
+            return false;
+        }
+        var email = $('buy-email');
+        if (email && !email.value && session.user && session.user.email) email.value = session.user.email;
+        return true;
+    }
+
     function campaignLabel(p) {
         if (p.campaign === 'founder') return 'Founder';
         if (p.campaign === 'christmas') return 'Christmas';
@@ -108,10 +138,18 @@
         $('buy-desc').textContent = desc;
 
         var btn = $('buy-submit');
-        btn.disabled = !p.available;
-        btn.textContent = p.available
-            ? 'Paga ' + fmt(p.amountCents, p.currency) + ' con crypto'
-            : 'Offerta esaurita';
+        if (!authChecked) {
+            btn.disabled = true;
+            btn.textContent = 'Verifico l\'accesso…';
+        } else if (!session) {
+            btn.disabled = true;
+            btn.textContent = 'Accedi per acquistare';
+        } else {
+            btn.disabled = !p.available;
+            btn.textContent = p.available
+                ? 'Paga ' + fmt(p.amountCents, p.currency) + ' con crypto'
+                : 'Offerta esaurita';
+        }
         document.title = 'Acquista PERRY ' + p.name + ' — pagamento crypto | RootCore';
     }
 
@@ -140,6 +178,10 @@
     async function submit(event) {
         event.preventDefault();
         if (busy || !plan || !plan.available) return;
+        if (!authClient || !session) {
+            redirectToAccount();
+            return;
+        }
 
         var email = String(($('buy-email') || {}).value || '').trim();
         if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
@@ -159,11 +201,17 @@
         setMsg('Creo l\'ordine sicuro. Non chiudere questa pagina.', '');
 
         try {
+            var fresh = await authClient.auth.getSession();
+            session = fresh && fresh.data ? fresh.data.session : null;
+            if (!session) {
+                redirectToAccount();
+                return;
+            }
             var res = await fetch(cfg.functionsUrl.replace(/\/+$/, '') + '/create-order', {
                 method: 'POST',
                 headers: {
                     apikey: cfg.supabaseAnonKey,
-                    Authorization: 'Bearer ' + cfg.supabaseAnonKey,
+                    Authorization: 'Bearer ' + session.access_token,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ plan: plan.slug, email: email || null })
@@ -182,6 +230,7 @@
                 rate_limited: 'Troppi tentativi ravvicinati. Aspetta qualche minuto.',
                 provider_unavailable: 'NOWPayments non risponde in questo momento. Riprova tra poco.',
                 invalid_email: 'L\'email non è valida.',
+                account_required: 'Accedi al tuo account per acquistare.',
                 order_create_failed: 'Non sono riuscito a creare l\'ordine. Riprova.'
             };
             setMsg(map[code] || 'Pagamento non avviato. Riprova o scrivi a perryadmin@proton.me.', 'error');
@@ -202,4 +251,7 @@
     if (form) form.addEventListener('submit', submit);
     render(plan);
     loadPlans();
+    loadSession().then(function (ok) {
+        if (ok) render(plan);
+    });
 })();

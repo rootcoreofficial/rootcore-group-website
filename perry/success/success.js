@@ -68,7 +68,7 @@
         if (value) value.textContent = code;
         setStatus(
             'Ecco il tuo codice.',
-            'Incollalo nella schermata di licenza di PERRY. Il profilo ospite viene creato in automatico: nessuna email, nessuna password.',
+            'Incollalo nella schermata di licenza di PERRY. Il dispositivo si collega alla licenza del tuo account; trovi tutto anche nella dashboard.',
             'Pagamento confermato',
             true
         );
