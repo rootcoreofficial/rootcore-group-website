@@ -1,0 +1,52 @@
+name: Verifica aggiornamento desktop 1.1.45
+on:
+  pull_request:
+    paths:
+      - 'desktop/releases/1.1.45/**'
+      - '.github/workflows/desktop-riprendi-145.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'desktop/releases/1.1.45/**'
+      - '.github/workflows/desktop-riprendi-145.yml'
+permissions:
+  contents: read
+concurrency:
+  group: perry-1-1-45-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  windows:
+    name: Windows ${{ matrix.base }}
+    runs-on: windows-2022
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        base: ['1.1.44', '1.1.43']
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verifica sul client installato
+        shell: pwsh
+        run: |
+          if ('${{ matrix.base }}' -eq '1.1.44') {
+            ./desktop/releases/1.1.45/verify.ps1
+          } else {
+            ./desktop/releases/1.1.45/verify-legacy.ps1
+          }
+  publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: windows
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Pubblica i file verificati sul canale stabile
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash desktop/releases/1.1.45/release.sh
