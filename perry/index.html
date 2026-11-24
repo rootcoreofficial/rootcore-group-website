@@ -663,6 +663,36 @@
                 if (cfg.pwaNote && pwaHint) pwaHint.textContent = cfg.pwaNote;
             }
 
+            // La scelta del piano deve arrivare al checkout solo se esiste già
+            // una sessione. Senza account si va dritti alla registrazione,
+            // senza montare la pagina d'acquisto per un istante.
+            function hasStoredAccount() {
+                var cfgAuth = window.PERRY_SITE || {};
+                var hit = /(?:^|\.)([a-z0-9]+)\.supabase\./i.exec(cfgAuth.supabaseUrl || '');
+                if (!hit) return false;
+                try {
+                    var raw = localStorage.getItem('sb-' + hit[1] + '-auth-token');
+                    if (!raw) return false;
+                    var session = JSON.parse(raw);
+                    return !!(session && (session.access_token || session.refresh_token));
+                } catch (_) {
+                    return false;
+                }
+            }
+
+            document.addEventListener('click', function (event) {
+                if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                var link = event.target.closest('a[href^="/perry/buy/?"]');
+                if (!link || link.target === '_blank') return;
+                var plan = '';
+                try { plan = new URL(link.href, location.href).searchParams.get('plan') || ''; } catch (_) { return; }
+                if (!plan) return;
+                event.preventDefault();
+                location.assign(hasStoredAccount()
+                    ? '/perry/buy/?plan=' + encodeURIComponent(plan)
+                    : '/perry/account/?plan=' + encodeURIComponent(plan) + '&mode=signup');
+            });
+
             document.querySelectorAll('a[href^="#"]').forEach(function (a) {
                 a.addEventListener('click', function (e) {
                     var id = a.getAttribute('href');

@@ -80,12 +80,21 @@
     }
 
     function redirectToAccount() {
-        var next = '/perry/buy/?plan=' + encodeURIComponent(slug);
-        location.replace('/perry/account/?plan=' + encodeURIComponent(slug) + '&mode=login&next=' + encodeURIComponent(next));
+        location.replace('/perry/account/?plan=' + encodeURIComponent(slug) + '&mode=signup');
+    }
+
+    function hideVeil() {
+        var veil = $('buy-veil');
+        if (!veil) return;
+        veil.classList.add('is-off');
+        setTimeout(function () { veil.remove(); }, 380);
     }
 
     async function loadSession() {
-        if (!authClient) return false;
+        if (!authClient) {
+            authChecked = true;
+            return false;
+        }
         try {
             var out = await authClient.auth.getSession();
             session = out && out.data ? out.data.session : null;
@@ -97,6 +106,7 @@
             redirectToAccount();
             return false;
         }
+        hideVeil();
         var email = $('buy-email');
         if (email && !email.value && session.user && session.user.email) email.value = session.user.email;
         return true;
@@ -257,5 +267,9 @@
     loadPlans();
     loadSession().then(function (ok) {
         if (ok) render(plan);
+        else if (!authClient) {
+            hideVeil();
+            setMsg('Accesso account non configurato su questo sito.', 'error');
+        }
     });
 })();

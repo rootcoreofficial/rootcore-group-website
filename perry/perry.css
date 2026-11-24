@@ -2019,3 +2019,34 @@ button { cursor: pointer; }
 @media (max-width: 860px) {
   .buy-grid { grid-template-columns: 1fr; }
 }
+
+/* La pagina d'acquisto non deve mostrare il piano prima di sapere
+   se l'utente è loggato: il velo evita il flash durante il redirect. */
+.buy-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(232,71,43,.14), transparent 65%),
+    var(--bg);
+  color: var(--text-2);
+  font: 500 10px/1.4 var(--mono);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transition: opacity .32s ease;
+}
+.buy-veil.is-off { opacity: 0; pointer-events: none; }
+.buy-veil__mark {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text);
+}
+.buy-veil__mark em { font-style: italic; color: var(--accent-2); }
