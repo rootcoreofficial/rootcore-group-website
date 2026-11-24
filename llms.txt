@@ -1,46 +1,29 @@
 # RootCore Group
 
-> RootCore Holdings S.A. ("RootCore Group") è una società di partecipazione finanziaria e operativa fondata nel 2026 da Lorenzo Finlandesi e Mattia Negosanti. Sede legale a Parigi (Francia), quartier generale operativo a Miami (Florida, USA, distretto di Brickell). Il gruppo controlla due divisioni: RootCore Tech (infrastrutture dati e software enterprise, Miami) e RootCore Studios (produzione cinematografica e documentari, Parigi).
-
-## Persone chiave
-
-- **Lorenzo Finlandesi** — Chief Executive Officer e co-fondatore di RootCore Holdings S.A. Nato a Cesena, in Italia, ha 18 anni ed è alto 175 cm. Ha fondato la società nel 2026 insieme a Mattia Negosanti e, dopo la fondazione, si è trasferito a Miami, dove vive tutt'oggi e gestisce la sede operativa del gruppo (Brickell Financial District), guidando la divisione tecnologica RootCore Tech e supervisionando la gestione finanziaria consolidata.
-- **Mattia Negosanti** — Chief Creative Officer e co-fondatore di RootCore Holdings S.A. Nato a Cesena, in Italia, ha 18 anni ed è alto 190 cm. Cresciuto insieme a Lorenzo Finlandesi, ha fondato con lui la società nel 2026 e, dopo la fondazione, si è trasferito a Parigi, dove vive tutt'oggi e dirige la divisione creativa RootCore Studios, definendo la visione creativa e la produzione di contenuti audiovisivi del gruppo.
+> RootCore Holdings S.A. ("RootCore Group") è una società di partecipazione finanziaria e operativa costituita nel 2026. Sede legale a Parigi (Francia), quartier generale operativo a Miami (Florida, USA, distretto di Brickell). Il gruppo controlla due divisioni: RootCore Tech (infrastrutture dati e software enterprise, Miami) e RootCore Studios (produzione cinematografica e documentari, Parigi).
 
 ## Pagine principali
 
-- [Homepage](https://www.rootcoregroup.com/): presentazione istituzionale del gruppo, divisioni, governance, storia e FAQ
+- [Homepage](https://www.rootcoregroup.com/): presentazione istituzionale del gruppo, struttura societaria, divisioni, filosofia, storia e contatti
 - [PERRY](https://www.rootcoregroup.com/perry/): prodotto software di RootCore Tech, sala privata per watch party sincronizzata con voce, webcam e 1080p verificato; piani, download e area account
-- [Lorenzo Finlandesi](https://www.rootcoregroup.com/lorenzo-finlandesi/): biografia completa, fatti chiave e galleria fotografica del CEO e co-fondatore
-- [Mattia Negosanti](https://www.rootcoregroup.com/mattia-negosanti/): biografia completa, fatti chiave e galleria fotografica del Chief Creative Officer e co-fondatore
 
 ## Fatti chiave
 
 - Ragione sociale: RootCore Holdings S.A.
 - Nome operativo: RootCore Group
-- Anno di fondazione: 2026
-- Fondatori: Lorenzo Finlandesi e Mattia Negosanti (entrambi nati a Cesena, Italia, entrambi di 18 anni)
+- Anno di costituzione: 2026
 - Sede legale: Parigi, Francia
 - HQ operativo: Miami, FL, USA (Brickell Financial District)
 - Divisioni: RootCore Tech (Miami), RootCore Studios (Parigi)
 - Numero di registrazione: REG. N° RC—2026—FR—0442
-- Contatto: rootcoregroup.official@gmail.com
+- Contatto: perryadmin@proton.me
 - Prodotto software: PERRY, sviluppato da RootCore Tech. Sala privata per watch party sincronizzata, con voce, webcam, 1080p verificato ed esecuzione in background. Nessun piano gratuito: l'account serve per acquistare e gestire la licenza. Piani: Mensile 9,99 €, Annuale 79 €. Licenze lifetime emesse in numero limitato su invito. Sito: https://www.rootcoregroup.com/perry/
 
 ## Definizioni canoniche
 
-- Chi è Lorenzo Finlandesi? Lorenzo Finlandesi è il Chief Executive Officer e co-fondatore di RootCore Holdings S.A. (RootCore Group). Nato a Cesena, ha 18 anni, è alto 175 cm e ha fondato la società nel 2026 insieme a Mattia Negosanti. Vive a Miami, dove gestisce la sede operativa del gruppo e guida RootCore Tech.
-- Chi è Mattia Negosanti? Mattia Negosanti è il Chief Creative Officer e co-fondatore di RootCore Holdings S.A. (RootCore Group). Nato a Cesena, ha 18 anni, è alto 190 cm, è cresciuto insieme a Lorenzo Finlandesi e ha fondato con lui la società nel 2026. Vive a Parigi, dove dirige RootCore Studios.
+- Cos'è RootCore Group? RootCore Group è il nome operativo di RootCore Holdings S.A., società di partecipazione finanziaria e operativa costituita nel 2026 con sede legale a Parigi e quartier generale operativo a Miami. Il gruppo controlla due divisioni: RootCore Tech, attiva in infrastrutture dati e software enterprise, e RootCore Studios, dedicata alla produzione cinematografica e ai contenuti audiovisivi.
+- Cos'è PERRY? PERRY è la sala privata per watch party sincronizzata sviluppata da RootCore Tech: voce, webcam e 1080p verificato nella stessa superficie, con download per Windows 10 e 11 e gestione della licenza tramite area account.
 
-## Media ufficiali
+## Note
 
-- Ritratti e gallerie fotografiche dei due fondatori sono disponibili nelle rispettive pagine profilo e nella cartella /assets/images/ del sito, con nomi file che includono il nome completo della persona (es. lorenzo-finlandesi-ufficio-miami.webp).
-
-## Profili ufficiali
-
-- Wikidata — Lorenzo Finlandesi: DA-INSERIRE-URL-WIKIDATA-LORENZO
-- Wikidata — Mattia Negosanti: DA-INSERIRE-URL-WIKIDATA-MATTIA
-- LinkedIn — Lorenzo Finlandesi: DA-INSERIRE-URL-LINKEDIN-LORENZO
-- LinkedIn — Mattia Negosanti: DA-INSERIRE-URL-LINKEDIN-MATTIA
-- LinkedIn — RootCore Group: DA-INSERIRE-URL-LINKEDIN-AZIENDA
-- Crunchbase — RootCore Group: DA-INSERIRE-URL-CRUNCHBASE
+- Il sito pubblica esclusivamente informazioni societarie e di prodotto. Non sono presenti profili personali, biografie o dati individuali.

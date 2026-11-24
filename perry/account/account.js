@@ -346,9 +346,9 @@
                 location.href = res.data.url;
                 return;
             }
-            msg($('dash-msg'), 'La gestione automatica non è ancora attiva. Scrivi a rootcoregroup.official@gmail.com per modificare il piano.', 'error');
+            msg($('dash-msg'), 'La gestione automatica non è ancora attiva. Scrivi a perryadmin@proton.me per modificare il piano.', 'error');
         } catch (_) {
-            msg($('dash-msg'), 'La gestione automatica non è ancora attiva. Scrivi a rootcoregroup.official@gmail.com per modificare il piano.', 'error');
+            msg($('dash-msg'), 'La gestione automatica non è ancora attiva. Scrivi a perryadmin@proton.me per modificare il piano.', 'error');
         }
     }
 
@@ -371,9 +371,9 @@
                 return;
             }
             var message = (res.data && res.data.message) || 'Pagamenti in attivazione. Scrivici per attivare il piano.';
-            msg($('dash-msg'), message + ' · rootcoregroup.official@gmail.com', 'error');
+            msg($('dash-msg'), message + ' · perryadmin@proton.me', 'error');
         } catch (_) {
-            msg($('dash-msg'), 'Pagamenti in attivazione. Scrivi a rootcoregroup.official@gmail.com per attivare il piano.', 'error');
+            msg($('dash-msg'), 'Pagamenti in attivazione. Scrivi a perryadmin@proton.me per attivare il piano.', 'error');
         }
 
         state.checkoutBusy = false;

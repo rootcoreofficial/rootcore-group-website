@@ -10,5 +10,5 @@ window.PERRY_SITE = {
   pwaNote: 'Safari · Condividi → Aggiungi alla Home.',
   version: '1.1.48',
   sha256: 'e7b0bd4a2037d4e87ec3a283ba7cd08e9016035d9ef23d98a2e6fdfd2cbeed6d',
-  supportEmail: 'rootcoregroup.official@gmail.com'
+  supportEmail: 'perryadmin@proton.me'
 };
