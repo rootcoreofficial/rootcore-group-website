@@ -1,0 +1,19 @@
+name: Verifica aggiornamento desktop 1.1.45
+on:
+  pull_request:
+    paths:
+      - 'desktop/releases/1.1.45/**'
+      - '.github/workflows/desktop-riprendi-145.yml'
+permissions:
+  contents: read
+jobs:
+  upgrade:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Prova il passaggio dalla 1.1.44 sul runner Windows
+        shell: pwsh
+        run: ./desktop/releases/1.1.45/verify.ps1
