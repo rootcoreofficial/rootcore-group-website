@@ -1,9 +1,8 @@
 name: Verifica aggiornamento desktop 1.1.45
 on:
-  pull_request:
-    paths:
-      - 'desktop/releases/1.1.45/**'
-      - '.github/workflows/desktop-riprendi-145.yml'
+  # Solo codice già mergiato su main: un PR non deve poter eseguire
+  # script .ps1 del repository su un runner Windows.
+  workflow_dispatch:
   push:
     branches: [main]
     paths:

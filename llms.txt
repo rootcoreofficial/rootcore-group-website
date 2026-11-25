@@ -26,4 +26,13 @@
 
 ## Note
 
-- Il sito pubblica esclusivamente informazioni societarie e di prodotto. Non sono presenti profili personali, biografie o dati individuali.
+- Le pagine pubbliche correnti descrivono informazioni societarie e di prodotto. Il recapito di supporto è una casella di ruolo; eventuali pagine storiche non più collegate possono ancora esistere nella cronologia del repository o nelle cache.
+
+## Trasparenza
+
+- [Termini](https://www.rootcoregroup.com/perry/termini/): licenza, account, pagamenti, uso consentito
+- [Privacy](https://www.rootcoregroup.com/perry/privacy/): dati, basi giuridiche, fornitori, diritti
+- [Rimborsi](https://www.rootcoregroup.com/perry/rimborsi/): recesso, sostituzione, chargeback
+- [Contatti](https://www.rootcoregroup.com/perry/contatti/): supporto e tempi di risposta
+- [Stato](https://www.rootcoregroup.com/perry/stato/): stato verificato dei componenti
+- [Changelog](https://www.rootcoregroup.com/perry/changelog/): modifiche pubbliche delle release

@@ -17,6 +17,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.rootcoregroup.com/perry/">
     <meta property="og:image" content="https://www.rootcoregroup.com/assets/images/rootcore-group-logo.webp">
+    <meta property="og:image:alt" content="PERRY, la sala privata per guardare insieme">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="PERRY — La sala privata per guardare insieme">
+    <meta name="twitter:description" content="Watch party sincronizzata, voce e webcam, 1080p reale. Un prodotto RootCore.">
+    <meta name="twitter:image" content="https://www.rootcoregroup.com/assets/images/rootcore-group-logo.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,13 +37,42 @@
       "name": "PERRY",
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "Windows 10, Windows 11",
+      "softwareVersion": "1.1.54",
       "description": "Sala privata per watch party sincronizzata con voce, webcam e 1080p reale. Un prodotto RootCore Tech.",
       "url": "https://www.rootcoregroup.com/perry/",
-      "publisher": { "@type": "Organization", "name": "RootCore Group", "url": "https://www.rootcoregroup.com/" },
+      "image": "https://www.rootcoregroup.com/assets/images/rootcore-group-logo.webp",
+      "publisher": { "@type": "Organization", "name": "RootCore Holdings S.A.", "url": "https://www.rootcoregroup.com/", "logo": "https://www.rootcoregroup.com/assets/images/rootcore-group-logo.webp" },
       "offers": [
-        { "@type": "Offer", "name": "PERRY Mensile — pass 30 giorni", "price": "5.99", "priceCurrency": "EUR" },
-        { "@type": "Offer", "name": "PERRY Annuale — 12 mesi", "price": "39.99", "priceCurrency": "EUR" },
-        { "@type": "Offer", "name": "PERRY Lifetime", "price": "199.00", "priceCurrency": "EUR" }
+        { "@type": "Offer", "name": "PERRY Mensile — pass 30 giorni", "price": "5.99", "priceCurrency": "EUR", "url": "https://www.rootcoregroup.com/perry/buy/?plan=monthly", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "PERRY Annuale — 12 mesi", "price": "39.99", "priceCurrency": "EUR", "url": "https://www.rootcoregroup.com/perry/buy/?plan=annual", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "PERRY Lifetime", "price": "199.00", "priceCurrency": "EUR", "url": "https://www.rootcoregroup.com/perry/buy/?plan=lifetime", "availability": "https://schema.org/InStock" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.rootcoregroup.com/#organization",
+      "name": "RootCore Holdings S.A.",
+      "url": "https://www.rootcoregroup.com/",
+      "logo": "https://www.rootcoregroup.com/assets/images/rootcore-group-logo.webp",
+      "email": "perryadmin@proton.me",
+      "sameAs": ["https://github.com/rootcoreofficial"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Che cos'è PERRY, esattamente?", "acceptedAnswer": { "@type": "Answer", "text": "PERRY è l'app per Windows che crea una sala privata di visione condivisa. Scegli un titolo, inviti la tua cerchia e guardate insieme con voce e webcam, mentre la riproduzione resta sincronizzata." } },
+        { "@type": "Question", "name": "La chiave va inserita a ogni apertura?", "acceptedAnswer": { "@type": "Answer", "text": "No. La licenza viene attivata una volta e salvata in forma cifrata sul dispositivo. Agli avvii successivi PERRY verifica la licenza in locale." } },
+        { "@type": "Question", "name": "Posso usarla su più computer?", "acceptedAnswer": { "@type": "Answer", "text": "Ogni codice include due posti macchina. Lo stesso computer reinstallato riprende il suo posto; dalla dashboard puoi vedere e liberare i dispositivi." } },
+        { "@type": "Question", "name": "Cosa succede se resto offline?", "acceptedAnswer": { "@type": "Answer", "text": "PERRY continua a funzionare offline entro il periodo di grazia. Quando ti riconnetti, la licenza si aggiorna in modo silenzioso." } },
+        { "@type": "Question", "name": "Esiste un piano gratuito?", "acceptedAnswer": { "@type": "Answer", "text": "No. PERRY non ha un piano free. Ogni installazione richiede una licenza: pass mensile da 30 giorni, annuale da 12 mesi o lifetime." } },
+        { "@type": "Question", "name": "Serve un account?", "acceptedAnswer": { "@type": "Answer", "text": "Sì per acquistare: l'account custodisce il codice, la licenza e i dispositivi. Dopo il pagamento ritrovi il codice nella dashboard." } },
+        { "@type": "Question", "name": "Come funzionano rinnovi e scadenze?", "acceptedAnswer": { "@type": "Answer", "text": "Mensile e annuale sono pass prepagati senza addebito automatico. Alla scadenza la licenza si ferma e decidi tu se acquistare un altro periodo. La lifetime non scade." } }
       ]
     }
     </script>
@@ -63,6 +99,19 @@
                 Account
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
             </a>
+            <details class="mobile-nav">
+                <summary aria-label="Apri il menu di PERRY">Menu</summary>
+                <nav aria-label="Navigazione PERRY">
+                    <a href="#features">Funzioni</a>
+                    <a href="#sync">Sync</a>
+                    <a href="#hd">Qualità</a>
+                    <a href="#pricing">Piani</a>
+                    <a href="#download">Download</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="/perry/changelog/">Changelog</a>
+                    <a href="/perry/stato/">Stato</a>
+                </nav>
+            </details>
         </div>
     </header>
 
@@ -472,15 +521,15 @@
 
                 <div class="download-mobile reveal">
                     <article class="mobile-card">
-                        <span class="eyebrow">PERRY iPhone</span>
-                        <h3>Senza <em>App Store.</em></h3>
-                        <p>Apri PERRY in Safari, tocca Condividi e scegli “Aggiungi alla Home”. Da lì si apre a tutto schermo, come un'app.</p>
+                        <span class="eyebrow">PERRY iPhone · in preparazione</span>
+                        <h3>Presto, <em>senza App Store.</em></h3>
+                        <p>Quando il backend pubblico sarà attivo, aprirai PERRY in Safari, toccherai Condividi e sceglierai “Aggiungi alla Home”. Da lì si aprirà a tutto schermo, come un'app.</p>
                         <div class="download-actions">
                             <a class="btn btn-ghost" id="pwa-btn" href="#" aria-disabled="true">
-                                Apri PERRY per iPhone
+                                In preparazione
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
                             </a>
-                            <span class="hint" id="pwa-hint">Safari · iOS 15 o superiore · Condividi → Aggiungi alla Home.</span>
+                            <span class="hint" id="pwa-hint">Disponibile quando il backend pubblico sarà attivo. Nessuna promessa di data.</span>
                         </div>
                     </article>
                 </div>
@@ -497,7 +546,7 @@
                 <div class="faq">
                     <details>
                         <summary>Che cos'è PERRY, esattamente?</summary>
-                        <p>PERRY è l'app per Windows e iPhone (dalla Home di Safari) che crea una sala privata di visione condivisa. Scegli un titolo, inviti la tua cerchia e guardate insieme con voce e webcam, mentre la riproduzione resta sincronizzata. È un prodotto RootCore Tech, la divisione tecnologica di RootCore Group.</p>
+                        <p>PERRY è l'app per Windows che crea una sala privata di visione condivisa. La versione iPhone si apre dalla Home di Safari quando il backend pubblico è attivo. Scegli un titolo, inviti la tua cerchia e guardate insieme con voce e webcam, mentre la riproduzione resta sincronizzata. È un prodotto RootCore Tech, la divisione tecnologica di RootCore Group.</p>
                     </details>
                     <details>
                         <summary>La chiave va inserita a ogni apertura?</summary>
@@ -560,6 +609,15 @@
                         <a href="/">Sito istituzionale</a>
                         <a href="/#divisions">Divisioni</a>
                         <a href="/#contact">Contatti</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Trasparenza</h4>
+                        <a href="/perry/termini/">Termini</a>
+                        <a href="/perry/privacy/">Privacy</a>
+                        <a href="/perry/rimborsi/">Rimborsi</a>
+                        <a href="/perry/contatti/">Supporto</a>
+                        <a href="/perry/stato/">Stato del servizio</a>
+                        <a href="/perry/changelog/">Changelog</a>
                     </div>
                 </div>
             </div>

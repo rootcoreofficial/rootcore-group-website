@@ -7,7 +7,13 @@
   </url>
   <url>
     <loc>https://www.rootcoregroup.com/perry/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <priority>0.80</priority>
   </url>
+  <url><loc>https://www.rootcoregroup.com/perry/changelog/</loc><lastmod>2026-11-25</lastmod><priority>0.50</priority></url>
+  <url><loc>https://www.rootcoregroup.com/perry/termini/</loc><lastmod>2026-11-25</lastmod><priority>0.40</priority></url>
+  <url><loc>https://www.rootcoregroup.com/perry/privacy/</loc><lastmod>2026-11-25</lastmod><priority>0.40</priority></url>
+  <url><loc>https://www.rootcoregroup.com/perry/rimborsi/</loc><lastmod>2026-11-25</lastmod><priority>0.40</priority></url>
+  <url><loc>https://www.rootcoregroup.com/perry/contatti/</loc><lastmod>2026-11-25</lastmod><priority>0.40</priority></url>
+  <url><loc>https://www.rootcoregroup.com/perry/stato/</loc><lastmod>2026-11-25</lastmod><priority>0.30</priority></url>
 </urlset>

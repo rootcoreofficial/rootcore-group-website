@@ -15,16 +15,16 @@ attivazione atomica e chiude tutto ad `anon`/`authenticated`.
 
 ## 2. Seed lifetime
 
-`C:\Users\spect\Downloads\rootcore-license-admin\seed_lifetime_keys.sql`
+`<cartella-locale>/rootcore-license-admin/seed_lifetime_keys.sql`
 contiene solo hash e ciphertext. Eseguilo dopo la migrazione.
 Le chiavi in chiaro restano in `keys.txt` fuori dal repository.
 
 ## 3. Secret delle funzioni
 
-Da `C:\Users\spect\Downloads\rootcore-license-admin\secrets.env`:
+Da `<cartella-locale>/rootcore-license-admin/secrets.env`:
 
 ```bash
-npx supabase secrets set --env-file "C:\Users\spect\Downloads\rootcore-license-admin\secrets.env" --project-ref "$SUPABASE_PROJECT_REF"
+npx supabase secrets set --env-file "<cartella-locale>/rootcore-license-admin/secrets.env" --project-ref "$SUPABASE_PROJECT_REF"
 ```
 
 Variabili richieste: `LICENSE_HMAC_PEPPER`, `LICENSE_AES_KEY`,
